@@ -1,0 +1,21 @@
+{
+  "name": "PodSquad",
+  "version": "1.0.0",
+  "description": "An application that allows users to join Pods based on their interests. Users can create and join Pods, choose a Podcast episode of the month, discuss Podcasts with other Pod members, and keep track of their interests on their profiles.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orangedalek/PodSquad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orangedalek/PodSquad/issues"
+  },
+  "homepage": "https://github.com/orangedalek/PodSquad#readme"
+}
