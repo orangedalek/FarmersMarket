@@ -1,7 +1,7 @@
 var React = require('react');
 var helpers = require('./utils/helpers');
 
-var Dashboard = React.createClass({
+var dashboard = React.createClass({
 	render: function() {
 		return (
 			<div className="panel panel-default">
@@ -22,4 +22,4 @@ var Dashboard = React.createClass({
 	}
 });
 
-module.exports = Dashboard;
+module.exports = dashboard;
