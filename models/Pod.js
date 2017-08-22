@@ -12,10 +12,16 @@ var podSchema = Schema ({
 	description: {
 		type: String
 	},
+	episode: {
+		type: 
+	}
 	members: [{
 		// This Number will be equal to the User _id
 		type: Number,
-		ref: User
+		ref: "User",
+	}],
+	comments: [{
+		type: String
 	}]
 });
 

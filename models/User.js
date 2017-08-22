@@ -8,6 +8,10 @@ var userSchema = Schema({
 	password: {
 		type: String
 	},
+	idAdmin:{
+		type: Boolean,
+		default: false
+	},
 	image: {
 		type: String
 	},
