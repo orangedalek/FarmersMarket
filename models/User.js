@@ -10,7 +10,7 @@ var userSchema = Schema({
 	},
 	image: {
 		type: String
-	}
+	},
 	pods: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Pod'

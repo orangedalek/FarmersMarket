@@ -19,7 +19,7 @@ router.get('/user/:id', function(req, res) {
 	})
 });
 
-route.get('/pod/:id', function(req, res) {
+router.get('/pod/:id', function(req, res) {
 	//this will get all of the pods and put them on the podLanding page
 	Pod.find({})
     .exec(function(err, doc) {
