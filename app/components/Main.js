@@ -39,7 +39,7 @@ var Main = React.createClass({
                   </div>
 
                    <div className="row">
-                     
+
                         <Route exact path="/" render={(props) => (
                            <dashboard {...props} />
                         )} />
@@ -49,7 +49,7 @@ var Main = React.createClass({
                         )} />
                  </div>
 
-          </div>        
+          </div>
      );
    }
 });

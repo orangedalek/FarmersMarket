@@ -11,4 +11,16 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
+// this will post specific id to page
+router.post('/user/:id', function(req, res) {
+  var newPod = new User(req.body);
+  newPod.save(function(err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  })
+})
+
 module.exports = router;
