@@ -1,12 +1,13 @@
 var React = require('react');
 //Uses ES6 for importing router library
-import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import { Route, IndexRoute, Router, browserHistory } from 'react-router-dom';
 
 var Main = require('../components/Main');
 var dashboard = require('../components/children/dashboard');
 var newUser = require('../components/children/newUser');
 var podLanding = require('../components/children/podLanding');
 var results = require('../components/children/results');
+
 
 var routes = (
 	// Router component
@@ -28,4 +29,3 @@ var routes = (
 	</Router>
 );
 
-module.exports = routes;
