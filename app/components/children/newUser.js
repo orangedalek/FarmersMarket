@@ -73,6 +73,7 @@ var newUser = React.createClass({
 							</form>
 						</div>
 					</div>
+          {db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods})}
 					{/*this.state.displayResults ? <Results results={this.props.results} saveArticle={this.props.[this.props.saveArticle]} /> : null */}
 				</div>
 			</div>
