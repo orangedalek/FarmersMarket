@@ -38,7 +38,15 @@ var helpers = {
     .then(function(result) {
       return(result);
     })
-  }
+  },
+
+  getPods: function() {
+    return axios.get("/user/:id")
+      .then(function(results) {
+        console.log("axios results", results);
+        return results;
+      });
+  },
 }
 
 module.exports = helpers;
