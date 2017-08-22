@@ -1,7 +1,8 @@
 var React = require('react');
 //subcomponents go here, not sure what they'll be called yet
 // var ??? = require("./???");
-var helpers = require('../utils/helpers');
+var helpers = require('./utils/helpers.js');
+
 var Main = React.createClass({
     getInitialState: function(){
         return {

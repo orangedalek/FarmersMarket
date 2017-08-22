@@ -1,5 +1,4 @@
 var React = require('react');
-var helpers = require('./utils/helpers');
 
 var dashboard = React.createClass({
 	render: function() {
@@ -10,11 +9,10 @@ var dashboard = React.createClass({
 				</div>
 				<div className="panel-body text-center">
 					{this.props.pods.map(function(pod, i) {
-		            	return (
-		              	<h3 key={i}>{pod.title} </h3>
-		              	<img key={i} src='"'{pod.icon}'"'></img>
-		              	<p key={i}>{pod.description}</p>
-		            	);
+		            	//return ()
+		              	//<h3 key={i}>{pod.title}</h3>
+		              	//<img key={i} src='"'{pod.icon}'"'></img>
+		              	//<p key={i}>{pod.description}</p> 	
 		          	})}
 				</div>
 			</div>

@@ -4,8 +4,8 @@ import { Route, IndexRoute, Router, browserHistory } from 'react-router-dom';
 
 var Main = require('../components/Main');
 var dashboard = require('../components/children/dashboard');
-//var newUser = require('../components/children/newUser');
-//var podLanding = require('../components/children/podLanding');
+var newUser = require('../components/children/newUser');
+var podLanding = require('../components/children/podLanding');
 //var results = require('../components/children/results');
 
 
