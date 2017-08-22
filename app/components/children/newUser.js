@@ -26,6 +26,13 @@ var newUser = React.createClass({
     this.props.searchTerm(this.state.username, this.state.password, this.state.image, this.state.pods);
     this.setState({username:'', password: '', image: '', pods: []}); //leave interest out for now
     this.setState({displayResults: true});
+
+    db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods});
+
+    res.redirect('/', function(req, res) {
+      res.render('index');
+    });
+
   },
 
   // componentDidMount: function(){
@@ -73,7 +80,7 @@ var newUser = React.createClass({
 							</form>
 						</div>
 					</div>
-          {db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods})}
+          {/* {db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods})} */}
 					{/*this.state.displayResults ? <Results results={this.props.results} saveArticle={this.props.[this.props.saveArticle]} /> : null */}
 				</div>
 			</div>
