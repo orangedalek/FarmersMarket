@@ -21,13 +21,13 @@ var helpers = {
           if(count>4) {
             return newResults;
           }
-          if(fullResults[count].[insert topic or title] && fullResults[count].[insert pub date] && fullResults[count].[insert content url]) {
-            newResults.push(fullResults[count]);
-            count++;
+          //if(fullResults[count].[insert topic or title] && fullResults[count].[insert pub date] && fullResults[count].[insert content url]) {
+          //newResults.push(fullResults[count]);
+          //  count++;
           }
-        }
         return newResults;
-      } else {
+      }
+     else {
         return("");
       }
     })
