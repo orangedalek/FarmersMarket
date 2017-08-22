@@ -1,6 +1,10 @@
 var React = require('react');
 //Uses ES6 for importing router library
-import { Route, IndexRoute, Router, browserHistory } from 'react-router-dom';
+var router = require("react-router-dom");
+
+var Route = router.Route;
+
+var BrowserRouter = router.BrowserRouter;
 
 var Main = require('../components/Main');
 var dashboard = require('../components/children/dashboard');
@@ -9,23 +13,12 @@ var podLanding = require('../components/children/podLanding');
 //var results = require('../components/children/results');
 
 
-var routes = (
+module.exports = (
 	// Router component
-	<Router history = {browserHistory}>
-		<Route path="/" component={Main}>
+	<BrowserRouter>
 
-			{/* Show appropriate components for each route*/}
-			<Route path="dashboard" component={dashboard} />
+		<Route component={Main} />
 
-			<Route path="podLanding" component={podLanding} />
-
-			<Route path="newUser" component={newUser} />
-
-			<Route path="login" component={login} />
-
-			<IndexRoute component={dashboard} />
-
-		</Route>
-	</Router>
+	</BrowserRouter>
 );
 

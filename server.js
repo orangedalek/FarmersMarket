@@ -42,6 +42,7 @@ db.once('open', function() {
   console.log('Mongoose connection successful.');
 });
 
+var router = require("./controller/controller.js");
 app.use('/', router);
 
 // Launch App
