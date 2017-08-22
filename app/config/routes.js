@@ -1,26 +1,31 @@
-// Inclue the React library
-var React = require("react");
+var React = require('react');
+//Uses ES6 for importing router library
+import { Route, IndexRoute, Router, browserHistory } from 'react-router-dom';
 
-// Include the react-router module
-var router = require("react-router-dom");
+var Main = require('../components/Main');
+var dashboard = require('../components/children/dashboard');
+var newUser = require('../components/children/newUser');
+var podLanding = require('../components/children/podLanding');
+var results = require('../components/children/results');
 
-// Include the Route component for displaying individual routes
-var Route = router.Route;
 
-// Include the Router component to contain all our Routes
-// Here where we can pass in some configuration as props
-var BrowserRouter = router.BrowserRouter;
+var routes = (
+	// Router component
+	<Router history = {browserHistory}>
+		<Route path="/" component={Main}>
 
-// Reference the high-level components
-var Main = require("../components/Main");
+			{/* Show appropriate components for each route*/}
+			<Route path="dashboard" component={dashboard} />
 
-// Export the Routes
-module.exports = (
+			<Route path="podLanding" component={podLanding} />
 
-  // The high level component is the Router component
-  <BrowserRouter>
+			<Route path="newUser" component={newUser} />
 
-    <Route component={Main} />
+			<Route path="login" component={login} />
 
-  </BrowserRouter>
+			<IndexRoute component={dashboard} />
+
+		</Route>
+	</Router>
 );
+
