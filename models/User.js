@@ -11,6 +11,10 @@ var userSchema = Schema({
 	image: {
 		type: String
 	},
+	isAdmin: {
+		type: Boolean,
+		default: false
+	},
 	pods: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Pod'
