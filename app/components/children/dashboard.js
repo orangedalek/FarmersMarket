@@ -6,6 +6,7 @@ var dashboard = React.createClass({
 	},
 
 	componentDidMount: function() {
+		this.setState({userPods: []});
 	  	// Grab all of the user's pods from the database & display
 	  	helpers.getPods().then(function(userPods) {
 	      this.setState({ userPods: userPods.data });
@@ -25,7 +26,7 @@ var dashboard = React.createClass({
 	    );
 	},
 
-	renderArticles: function() {
+	renderPods: function() {
 	    return this.state.userPods.map(function(pod, index) {
 
 	      return (
@@ -71,7 +72,7 @@ var dashboard = React.createClass({
 						<h2 className="panel-title text-center">Your Pods</h2>
 					</div>
 					<div className="panel-body">
-						renderArticles();
+						{this.renderPods()}
 					</div>
 				</div>
 			</div>
