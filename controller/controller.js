@@ -11,6 +11,21 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
+
+// Comment route
+router.post("/articles/comment/:id", function(req, res) {
+  var newComment = new Comment(req.body);
+  newComment.save(function(err, doc) {
+    if (err) console.log(err);
+    else {
+      Article.findOneAndUpdate({_id: req.params.id}, { $push: {comment: doc._id}}, {new: true}, function(error, newdoc) {
+        if (error) console.log(error);
+        else res.send(newdoc);
+      });
+    }
+  });
+});
+
 router.get('/user/:id', function(req, res) {
 	//finds user with matching id and sends the pods array
 	User.findOne({ '_id' : req.params.id }, 'pods', function(err, pods) {
@@ -40,9 +55,8 @@ router.get('/pod/:keyword', function(req, res) {
       console.log(err);
     }
     else {
-      res.send(doc);
     }
   })
-})
+});
 
 module.exports = router;
