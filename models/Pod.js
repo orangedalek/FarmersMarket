@@ -12,10 +12,9 @@ var podSchema = Schema ({
 	description: {
 		type: String
 	},
-	isAdmin: {
-		type: Boolean,
-		default: false
-	}
+	keyword: {
+		type: String
+	},
 	members: [{
 		// This Number will be equal to the User _id
 		type: Number,
