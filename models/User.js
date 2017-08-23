@@ -11,6 +11,8 @@ var userSchema = Schema({
 	image: {
 		type: String
 	},
+	// This won't work because it'll say that this user is admin in every pod. We need to make
+	// a separate admin model or something...
 	isAdmin: {
 		type: Boolean,
 		default: false
