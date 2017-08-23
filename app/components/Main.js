@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+
 var axios = require('axios');
 
-=======
->>>>>>> 6f2391a7af7a4886e808ef3f3d8f3ea815cdc222
 var React = require('react');
 var Link = require("react-router").Link; 
 //subcomponents go here, not sure what they'll be called yet
-<<<<<<< HEAD
+
 
 var router = require('react-router-dom');
 var Link = router.Link;
@@ -64,41 +62,6 @@ var Main = React.createClass({
     },
     */
     //functions to load user data, handle clicks...
-    render: function() {
-        return(
-            <div className="container">
-                <div className="row">
-                  <div className="jumbotron text-center" style={{'backgroundImage': 'url(./assets/img/background.jpg)', 'backgroundRepeat': 'no-repeat', 'backgroundPosition': 'center', 'backgroundSize': '100% 100%', 'backgroundAttachment': 'fixed'}}>
-                    <h2 className="text-center"style={{'color': 'white', 'fontWeight': 'bold', 'fontSize': '48px'}}>PodSquad</h2>
-                    <p className="text-center" style={{'color': 'white'}}>
-                      <em>Search for an podcast and join!</em>
-                    </p>
-                    <hr />
-                    <p>
-                    <Link to="/"><button className="btn btn-primary btn-lg">Search Podcasts</button></Link>
-                    <Link to="/podLanding"><button className="btn btn-danger btn-lg">Pod Landing</button></Link>
-                    </p>
-                  </div>
-                  </div>
-
-                   <div className="row">
-                     
-                        <Route exact path="/" render={(props) => (
-                           <Dashboard 
-                            searchTerm={this.searchTerm}
-                            results={this.state.results}/>
-                        )} />
-
-                        <Route exact path="/podLanding" render={(props) => (
-                            <podLanding />
-                        )} />
-                 </div>
-
-          </div>        
-=======
-// var ??? = require("./???");
-var helpers = require('../utils/helpers');
-var Main = React.createClass({
 
     render: function(){
         return(
@@ -144,10 +107,8 @@ var Main = React.createClass({
                </div>
 
           </div>
->>>>>>> 6f2391a7af7a4886e808ef3f3d8f3ea815cdc222
-     );
-   }
 
+                /*
                 <div className="container">    
         
     <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
@@ -194,8 +155,11 @@ var Main = React.createClass({
     </div>
 </div>
 {this.props.children}
+            */
     
             )
+
+
     } 
 });
 
