@@ -7,6 +7,36 @@ var Main = React.createClass({
 
     render: function(){
         return(
+            <div className="container">
+                <div className="row">
+                  <div className="jumbotron text-center" style={{'backgroundImage': 'url(./assets/img/background.jpg)', 'backgroundRepeat': 'no-repeat', 'backgroundPosition': 'center', 'backgroundSize': '100% 100%', 'backgroundAttachment': 'fixed'}}>
+                    <h2 className="text-center"style={{'color': 'white', 'fontWeight': 'bold', 'fontSize': '48px'}}>PodSquad</h2>
+                    <p className="text-center" style={{'color': 'white'}}>
+                      <em>Search for an podcast and join!</em>
+                    </p>
+                    <hr />
+                    <p>
+                    <Link to="/"><button className="btn btn-primary btn-lg">Search Podcasts</button></Link>
+                    <Link to="/podLanding"><button className="btn btn-danger btn-lg">Pod Landing</button></Link>
+                    </p>
+                  </div>
+                  </div>
+
+                   <div className="row">
+
+                        <Route exact path="/" render={(props) => (
+                           <dashboard {...props} />
+                        )} />
+
+                        <Route exact path="/podLanding" render={(props) => (
+                            <podLanding {...props} />
+                        )} />
+                 </div>
+
+          </div>
+     );
+   }
+
                 <div className="container">    
         
     <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 

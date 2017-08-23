@@ -10,7 +10,7 @@ var helpers = {
     //var apiKey = "";
 //     var queryURL = "curl -H "Content-Type: application/json"  -H 'Accept: application/json' -d '{"email":"austin.alexander.lee@gmail.com","password":"austinatvoice"}' -X POST https://voicerepublic.com/api/sessions
 // ";
-    var queryURL = "";
+    //var queryURL = "";
 
     for (var i = 0; i < result.length; i++) {
       queryURL = queryURL + "%20" + result[i];
@@ -47,6 +47,7 @@ var helpers = {
       return(result);
     })
   }
+
 }
 
 module.exports = helpers;
