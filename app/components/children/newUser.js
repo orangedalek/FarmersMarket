@@ -29,8 +29,9 @@ var newUser = React.createClass({
 
     db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods});
 
+    // redirect to login page
     res.redirect('/', function(req, res) {
-      res.render('index');
+      res.render('index'); // confirm this is the login
     });
 
   },
