@@ -51,20 +51,6 @@ var dashboard = React.createClass({
 
 	render: function() {
 		<div className="container">
-		<nav className="navbar navbar-default">
-			<div className="navbar-header">
-				<a className="navbar-brand" href="#">PodSquad</a>
-			</div>
-			<div className="nav navbar-right">
-				<a id="dashLink" href="/user/:id">dashboard</a>
-				<form className="navbar-form" role="search">
-  				<div className="form-group">
-    			<input type="text" className="form-control text-center" id="title" placeholder="search" onChange= {this.handleChange} required/>
-  				</div>
-  				<button type="submit" className="btn btn-default" onClick={this.handleClick}>Search</button>
-				</form>
-			</div>
-		</nav>
 		<div className="row">
 			<div className="col-md-8">
 				<div className="panel panel-default">
