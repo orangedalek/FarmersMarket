@@ -1,5 +1,4 @@
 var React = require('react');
-var user = require('../../models/User');
 
 var dashboard = React.createClass({
 	getInitialState: function() {
@@ -10,8 +9,8 @@ var dashboard = React.createClass({
 		this.setState({userPods: []});
 	  	// Grab all of the user's pods from the database & display
 	  	helpers.getPods().then(function(userPods) {
-	      this.setState({ userPods: userPods.data });
-	      console.log("User's pods ", userPods.data);
+	      this.setState({ userPods: userPods.data })
+	      console.log("User's pods ", userPods.data)
 	    }.bind(this));
 	},
 
@@ -28,8 +27,8 @@ var dashboard = React.createClass({
 	},
 
 	renderPods: function() {
+		console.log('state', this.state);
 	    return this.state.userPods.map(function(pod, index) {
-
 	      return (
 	        <div key={index}>
 	          <li className="list-group-item">
@@ -46,19 +45,8 @@ var dashboard = React.createClass({
 	            <p>Description: {pod.description}</p>
 	          </li>
 	        </div>
-	      );
-	    }
-	    // .bind(this));
-
-		// return {
-		// 	title: "",
-		// 	icon: "",
-		// 	description: "",
-		// 	members: "",
-		// 	//pods: []
-		// 	//displayResults: false
-		// };
-
+	      )
+	    });
 	},
 
 	// handleClick: function() {
@@ -77,7 +65,7 @@ var dashboard = React.createClass({
 
 	render: function() {
 		return (
-		 <div class="container">
+		  <div class="container">
 			<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
 		        <div class="container-fluid">
 		            <div class="navbar-header">
@@ -164,8 +152,9 @@ var dashboard = React.createClass({
 					</div>
 				</div>
 			</div>
+
 		  </div>
-		)
+		);
 	}
 });
 
