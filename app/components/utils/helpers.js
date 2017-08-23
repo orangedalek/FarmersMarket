@@ -10,10 +10,11 @@ var helpers = {
     var audiosearch = new Audiosearch(process.env.AUDIOSEARCH_APP_ID, process.env.AUDIOSEARCH_SECRET);
 
     audiosearch.getTastemakers().then(function (tastemakers) {
+      // adds function
     });
 
     audiosearch.searchEpisodes('text query'.then(function (results) {
-
+      //
     });
 
     audiosearch.searchEpisodes('text query', {"size": 50, "from":1}).then(function(results) {

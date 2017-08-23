@@ -8,9 +8,12 @@ var userSchema = Schema({
 	password: {
 		type: String
 	},
-	interests: [{
-		type: String
-	}],
+  image: {
+    type: String
+  },
+	// interests: [{
+	// 	type: String
+	// }],
 	pods: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Pod'
