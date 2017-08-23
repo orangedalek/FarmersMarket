@@ -12,11 +12,18 @@ var podSchema = Schema ({
 	description: {
 		type: String
 	},
+	keyword: {
+		type: String
+	},
 	members: [{
 		// This Number will be equal to the User _id
 		type: Number,
 		ref: User
-	}]
+	}],
+	admin: {
+		type: Number,
+		ref: Admin
+	}
 });
 
 var Pod = mongoose.model('Pod', podSchema);
