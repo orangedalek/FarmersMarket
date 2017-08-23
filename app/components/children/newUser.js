@@ -1,15 +1,16 @@
 // add dependencies
 var React = require('react');
-//var helpers = require('../utils/helpers');
-var user = require('../../models/User');
 
-var newUser = React.createClass({
+//codebase imports
+var helpers = require('../utils/helpers');
+
+var User = React.createClass({
 
   getInitialState: function() {
     return {
       username: '',
       password: '',
-      //interests: [],
+      // interests: [],
       image: '',
       pods: []
     };
@@ -91,4 +92,4 @@ var newUser = React.createClass({
 });
 
 //exports the User
-module.exports = newUser;
+module.exports = User;

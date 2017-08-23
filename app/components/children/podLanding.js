@@ -1,5 +1,8 @@
 var React = require('react');
 
+//codebase imports
+var helpers = require('../utils/helpers');
+
 var podLanding = React.createClass({
 	getInitialState: function() {
 		return(
