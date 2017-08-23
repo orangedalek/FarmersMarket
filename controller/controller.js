@@ -21,7 +21,7 @@ router.get('/user/:id', function(req, res) {
 
 router.get('/pod/:id', function(req, res) {
 	//this will get all of the pods and put them on the podLanding page
-	Pod.find({})
+	Pod.find({}, { 'members' : req.params.id })
     .exec(function(err, doc) {
       if (err) {
         console.log(err);
@@ -30,6 +30,19 @@ router.get('/pod/:id', function(req, res) {
         res.send(doc);
       }
     });
+});
+
+//We will send the search parameters through the DOM(? - check documentation)
+router.get('/pod/:keyword', function(req, res) {
+  Pod.find({}, { 'keyword' : req.params.keyword })
+  .exec(function(err, doc) {
+    if(err){
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  })
 })
 
 module.exports = router;
