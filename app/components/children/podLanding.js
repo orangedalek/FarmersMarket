@@ -1,6 +1,9 @@
 var React = require('react');
 
-var podLanding = React.createClass({
+//codebase imports
+var helpers = require('../utils/helpers');
+
+var PodLanding = React.createClass({
 	getInitialState: function() {
 		return(
 			{
@@ -66,4 +69,4 @@ var podLanding = React.createClass({
 	}
 })
 
-module.exports = podLanding;
+module.exports = PodLanding;

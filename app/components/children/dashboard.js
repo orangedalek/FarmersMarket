@@ -1,6 +1,6 @@
 var React = require('react');
-var user = require('../../models/User');
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 var Dashboard = React.createClass({
 
@@ -57,6 +57,15 @@ var Dashboard = React.createClass({
 				    {this.state.results} 
 =======
 var dashboard = React.createClass({
+=======
+var helpers = require('../utils/helpers');
+
+var router = require('react-router-dom');
+var Link = router.Link;
+var Route = router.Route;
+
+var Dashboard = React.createClass({
+>>>>>>> 496ec9589b860fff650fb65d3a6497bdb09056e3
 	getInitialState: function() {
 		return { userPods: [] };
 	},
@@ -65,8 +74,8 @@ var dashboard = React.createClass({
 		this.setState({userPods: []});
 	  	// Grab all of the user's pods from the database & display
 	  	helpers.getPods().then(function(userPods) {
-	      this.setState({ userPods: userPods.data });
-	      console.log("User's pods ", userPods.data);
+	      this.setState({ userPods: userPods.data })
+	      console.log("User's pods ", userPods.data)
 	    }.bind(this));
 	},
 
@@ -83,8 +92,8 @@ var dashboard = React.createClass({
 	},
 
 	renderPods: function() {
+		console.log('state', this.state);
 	    return this.state.userPods.map(function(pod, index) {
-
 	      return (
 	        <div key={index}>
 	          <li className="list-group-item">
@@ -101,19 +110,8 @@ var dashboard = React.createClass({
 	            <p>Description: {pod.description}</p>
 	          </li>
 	        </div>
-	      );
-	    }
-	    // .bind(this));
-
-		// return {
-		// 	title: "",
-		// 	icon: "",
-		// 	description: "",
-		// 	members: "",
-		// 	//pods: []
-		// 	//displayResults: false
-		// };
-
+	      )
+	    });
 	},
 
 	// handleClick: function() {
@@ -132,101 +130,82 @@ var dashboard = React.createClass({
 
 	render: function() {
 		return (
-		 <div class="container">
-			<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-		        <div class="container-fluid">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i>PodSquad</a>
-		            </div>
-		            <div class="navbar-collapse collapse" id="bs-navbar">
-		                <ul class="nav navbar-nav">
-		                    <li>
-		                        <Link to="/about">About</Link>
-		                    </li>
-		                    <li>
-		                       <Link to="/dashboard">Dashboard</Link>
-		                    </li>
-		                    <li>
-		                        <Link to="/contact">Contact</Link>
-		                    </li>
-		                </ul>
-		                <ul class="nav navbar-nav navbar-right">
-		                    <li>
-		                        <form class="navbar-form" role="search">
-									<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search" />
-									<button type="submit" class="btn btn-default" onClick={this.handleClick}>Search</button>
-									</div>
-								</form>
-		                    </li>
-		                </ul>
-		            </div>
-		        </div>
-		    </nav>
+		  <div className="container">
 
-		    <div class="spacer"></div>
+		    <div className="spacer"></div>
 
-			<div class="row">
-				<div class="col-md-8">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title text-center">Your Pods</h2>
+			<div className="row">
+				<div className="col-md-8">
+					<div className="panel panel-default">
+						<div className="panel-heading">
+							<h2 className="panel-title text-center">Your Pods</h2>
 						</div>
-						<div class="panel-body">
+						<div className="panel-body">
 							<h1>PODS GO HERE</h1>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title text-center">You</h2>
+				<div className="col-md-4">
+					<div className="panel panel-default">
+						<div className="panel-heading">
+							<h2 className="panel-title text-center">You</h2>
 						</div>
-						<div class="panel-body">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-2">
+						<div className="panel-body">
+							<div className="container">
+
+								<div className="row">
+									<div className="col-md-2">
 										<h2>Name</h2>
 									</div>
-									<div class="col-md-2">
+									<div className="col-md-2">
 										<img id="user-pic" src="Koala_climbing_tree.jpg"></img>	
 									</div>
 								</div>
-								<hr></hr>
-								<div>
-									<h2>Pods</h2>
-									<ul>
-										<li>podname</li>
-										<li>podname</li>
-									</ul>
+
+								<div className="row">
+									<div className="col-md-3">
+										<hr/>
+									</div>
 								</div>
-								<br></br>
-								<br></br>
-								<hr></hr>
-								<div id="create-btn-holder" class="row">
-									<div class="col-md-4">
-										<button id="create-btn" class="btn btn-default btn-round-sm btn-sm">Create New Pod!</button>
+
+								<div className="row">
+									<div className="col-md-4">
+										<h2>Pods</h2>
+										<ul>
+											<li>podname</li>
+											<li>podname</li>
+										</ul>
+									</div>
+								</div>
+								
+								<div className="row" id="create-btn-holder">
+									<div className="col-md-3">
+										<br/>
+										<br/>
+										<hr/>
+										<button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button>
 									</div>
 								</div>	
 							</div>
 						</div>
+
 					</div>
 >>>>>>> 6f2391a7af7a4886e808ef3f3d8f3ea815cdc222
 				</div>
+
 			</div>
+
 		  </div>
-		)
+		);
 	}
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 module.exports = Dashboard;
 =======
 module.exports = dashboard;
 >>>>>>> 6f2391a7af7a4886e808ef3f3d8f3ea815cdc222
+=======
+module.exports = Dashboard;
+>>>>>>> 496ec9589b860fff650fb65d3a6497bdb09056e3

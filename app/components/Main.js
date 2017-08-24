@@ -1,9 +1,24 @@
+<<<<<<< HEAD
 
 var axios = require('axios');
 
+=======
+//Standard imports
+>>>>>>> 496ec9589b860fff650fb65d3a6497bdb09056e3
 var React = require('react');
-var Link = require("react-router").Link; 
+
+var router = require('react-router-dom');
+var Link = router.Link;
+var Route = router.Route;
+
+//codebase imports
+var helpers = require('./utils/helpers');
+
+var Dashboard = require('./children/dashboard');
+var PodLanding = require('./children/podLanding');
+
 //subcomponents go here, not sure what they'll be called yet
+<<<<<<< HEAD
 
 
 var router = require('react-router-dom');
@@ -17,6 +32,11 @@ var podLanding = require("./children/podLanding");
 
 var helpers = require('./utils/helpers.js');
 
+=======
+// var ??? = require("./???");
+
+
+>>>>>>> 496ec9589b860fff650fb65d3a6497bdb09056e3
 var Main = React.createClass({
     getInitialState: function(){
         return {
@@ -63,51 +83,62 @@ var Main = React.createClass({
     */
     //functions to load user data, handle clicks...
 
+  getInitialState: function() {
+    return { 'keyword': this.keyword };
+  },
+
     render: function(){
         return(
-            <div className="container">
-              <nav className="navbar navbar-default">
-                <div className="navbar-header">
-                  <a className="navbar-brand" href="/">PodSquad</a>
-                </div>
-                <div className="nav navbar-right">
-                  <Link to="/user/:id"><button className="btn btn-primary btn-lg">Dashboard</button></Link>
-                  <form className="navbar-form" role="search">
+          <div className="container">
+            <nav id="topNav" className="navbar navbar-default navbar-fixed-top">
+              <div className="container-fluid">
+                  <div className="navbar-header">
+                      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                          <span className="sr-only">Toggle navigation</span>
+                          <span className="icon-bar"></span>
+                          <span className="icon-bar"></span>
+                          <span className="icon-bar"></span>
+                      </button>
+                      <a className="navbar-brand page-scroll" href="#first"><i className="ion-ios-analytics-outline"></i>PodSquad</a>
+                  </div>
+                  <div className="navbar-collapse collapse" id="bs-navbar">
+                      <ul className="nav navbar-nav">
+                          <li>
+                              <Link to="/about">About</Link>
+                          </li>
+                          <li>
+                             <Link to="/dashboard">Dashboard</Link>
+                          </li>
+                          <li>
+                              <Link to="/contact">Contact</Link>
+                          </li>
+                      </ul>
+                      <ul className="nav navbar-nav navbar-right">
+                          <li>
+                              <form className="navbar-form" role="search">
                     <div className="form-group">
-                    <input type="text" className="form-control text-center" id="title" placeholder="search" onChange= {this.handleChange} required/>
-                    </div>
+                    <input type="text" className="form-control" placeholder="Search" />
                     <button type="submit" className="btn btn-default" onClick={this.handleClick}>Search</button>
+                    </div>
                   </form>
-                </div>
-              </nav>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+            </nav>
 
-              <div className="row">
-                <div className="jumbotron text-center" style={{'backgroundImage': 'url(./assets/img/background.jpg)', 'backgroundRepeat': 'no-repeat', 'backgroundPosition': 'center', 'backgroundSize': '100% 100%', 'backgroundAttachment': 'fixed'}}>
-                  <h2 className="text-center"style={{'color': 'white', 'fontWeight': 'bold', 'fontSize': '48px'}}>PodSquad</h2>
-                  <p className="text-center" style={{'color': 'white'}}>
-                    <em>Search for an podcast and join!</em>
-                  </p>
-                  <hr />
-                  <p>
-                  <Link to="/"><button className="btn btn-primary btn-lg">Search Podcasts</button></Link>
-                  <Link to="/podLanding"><button className="btn btn-danger btn-lg">Pod Landing</button></Link>
-                  </p>
-                </div>
-                </div>
+            
+          <div className="row"> 
+            <Route exact path="/" render={(props) => (
+               <Dashboard {...props} />
+            )} />
 
-                 <div className="row">
-                   
-                      <Route exact path="/" render={(props) => (
-                         <dashboard {...props} />
-                      )} />
-
-                      <Route exact path="/podLanding" render={(props) => (
-                          <podLanding {...props} />
-                      )} />
-               </div>
-
+            <Route exact path="/podLanding" render={(props) => (
+                <PodLanding {...props} />
+            )} />
           </div>
 
+<<<<<<< HEAD
                 /*
                 <div className="container">    
         
@@ -161,6 +192,11 @@ var Main = React.createClass({
 
 
     } 
+=======
+        </div>
+      );
+    }
+>>>>>>> 496ec9589b860fff650fb65d3a6497bdb09056e3
 });
 
 module.exports = Main;
