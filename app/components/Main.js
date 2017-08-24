@@ -103,18 +103,7 @@ var Main = React.createClass({
           <hr />
           <div className="container">    
             <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
-          
-            {/* dont think we can use namespace tags in react, but we can add to css later}
-            <div className="row">                
-                <div className="iconmelon">
-                  <svg viewBox="0 0 32 32">
-                    <g filter="">
-                      <use xlink:href="#git"></use>
-                    </g>
-                  </svg>
-                </div>
-            </div>
-            */}
+
               <Route exact path="/Dashboard" render={(props) => (
                  <Login {...props} />
               )} />
@@ -123,6 +112,16 @@ var Main = React.createClass({
           </div>
           </div>
         </div>
+
+        <div class="spacer"></div>
+
+        <footer class="col-md-12 container-fluid text-center navbar-bottom">
+          <div>
+            <p>&copy; copyright 2017 PodSquad</p>
+            <img id="audio" src="public/assets/images/audiosearch_logo.svg" />
+            <p>powered by audiosear.ch</p>
+          </div>
+        </footer>
       );
     }
 });
