@@ -1,7 +1,9 @@
-var mongoose = require('mongoose'),
-  , Schema = mongoose.Schema
+var mongoose = require('mongoose');
 
-var podSchema = Schema ({
+var Schema = mongoose.Schema;
+
+var PodSchema = new Schema({
+
 	title: {
 		type: String,
 		null: false
@@ -17,14 +19,12 @@ var podSchema = Schema ({
 	},
 	members: [{
 		// This Number will be equal to the User _id
-		type: Number,
-		ref: User
+		type: Number
 	}],
 	admin: {
-		type: Number,
-		ref: Admin
+		type: Number
 	}
 });
 
-var Pod = mongoose.model('Pod', podSchema);
+var Pod = mongoose.model('Pod', PodSchema);
 module.exports = Pod;
