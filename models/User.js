@@ -15,6 +15,7 @@ var userSchema = Schema({
 	// a separate admin model or something...
 	isAdmin: {
 		type: Schema.Types.ObjectId,
+		default: false,
 		ref: 'Pod'
 	},
 	pods: [{
