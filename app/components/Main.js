@@ -9,7 +9,7 @@ var Route = router.Route;
 var helpers = require('./utils/helpers');
 
 var Dashboard = require('./children/dashboard');
-var PodLanding = require('./children/Login');
+// var PodLanding = require('./children/Login');
 
 //subcomponents go here, not sure what they'll be called yet
 // var ??? = require("./???");
@@ -68,7 +68,7 @@ var Main = React.createClass({
                <Dashboard />
             )} />
 
-            <Route exact path="/Login" render={(props) => (
+            <Route exact path="/login" render={(props) => (
                 <Login />
             )} />
           </div>
