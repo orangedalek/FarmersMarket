@@ -6,10 +6,10 @@ var Link = router.Link;
 var Route = router.Route;
 
 //codebase imports
-var helpers = require('./utils/helpers');
+var helpers = require('../utils/helpers');
 
-var Dashboard = require('./children/dashboard');
-var PodLanding = require('./children/podLanding');
+var Dashboard = require('./dashboard');
+var PodLanding = require('./podLanding');
 
 
 var Login = React.createClass({
@@ -24,13 +24,7 @@ var Login = React.createClass({
         <div className="container">
             
           <div className="row"> 
-            <Route exact path="/" render={(props) => (
-               <Dashboard />
-            )} />
-
-            <Route exact path="/podLanding" render={(props) => (
-                <PodLanding />
-            )} />
+            <Link to="/dashboard" component={Dashboard}/>
           </div>
 
         </div>
