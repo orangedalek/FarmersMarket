@@ -161,7 +161,7 @@ var dashboard = React.createClass({
 									<h2>Name</h2>
 								</div>
 								<div class="col-md-2">
-									<img id="user-pic" src="Koala_climbing_tree.jpg"></img>	
+									<img id="user-pic" src="Koala_climbing_tree.jpg"></img>
 								</div>
 							</div>
 							<hr></hr>
@@ -179,7 +179,7 @@ var dashboard = React.createClass({
 								<div class="col-md-4">
 									<button id="create-btn" class="btn btn-default btn-round-sm btn-sm">Create New Pod!</button>
 								</div>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
