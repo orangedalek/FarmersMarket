@@ -4,7 +4,7 @@ var React = require('react');
 //codebase imports
 var helpers = require('../utils/helpers');
 
-var User = React.createClass({
+var NewUser = React.createClass({
 
   getInitialState: function() {
     return {
@@ -24,17 +24,10 @@ var User = React.createClass({
 
   handleClick: function(event) {
     event.preventDefault();
-    this.props.searchTerm(this.state.username, this.state.password, this.state.image, this.state.pods);
-    this.setState({username:'', password: '', image: '', pods: []}); //leave interest out for now
-    this.setState({displayResults: true});
-
-    db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods});
-
-    // redirect to login page
-    res.redirect('/', function(req, res) {
-      res.render('index'); // confirm this is the login
-    });
-
+    this.props.createUser(this.state.username, this.state.password, this.state.image);
+    alert()
+    this.setState({username:'', password: '', image: ''}); 
+    
   },
 
   // componentDidMount: function(){
@@ -69,17 +62,16 @@ var User = React.createClass({
 									<input type="text" className="form-control text-center" id="password" placeholder="Enter your password." onChange= {this.handleChange} required/>
 									<br />
 
-                  <h4 className=""><strong>Password</strong></h4>
-									<input type="text" className="form-control text-center" id="imageURL" placeholder="Enter your image link." onChange= {this.handleChange} required/>
+                  <h4 className=""><strong>Image</strong></h4>
+									<input type="text" className="form-control text-center" id="image" placeholder="Enter your image link." onChange= {this.handleChange} required/>
 									<br />
 
 									{/* <h4 className=""><strong>End Year</strong></h4>
 									<input type="text" className="form-control text-center" id="endYear" placeholder="2017"onChange= {this.handleChange} required/>
 									<br /> */}
-
-									<button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit My Info</button>
+									<button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit My Info</button>     
 								</div>
-							</form>
+              </form>
 						</div>
 					</div>
           {/* {db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods})} */}
@@ -92,4 +84,4 @@ var User = React.createClass({
 });
 
 //exports the User
-module.exports = User;
+module.exports = NewUser;

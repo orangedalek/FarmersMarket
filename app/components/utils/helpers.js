@@ -2,10 +2,11 @@
 var axios = require('axios');
 var EventEmitter = require('events').EventEmitter;
 var Promise = require('promise');
-var request = require('request');
+//var request = require('request');
 
 var helpers = {
 
+  /*
   audiosearch : function (oauthKey, oauthSecret, oauthHost) {
   var self = this;
   if (!oauthKey || !oauthSecret) {
@@ -77,13 +78,14 @@ var helpers = {
     }
   });
 },
+  */
 
   // run query looking for topic, publication date,
   runQuery: function(title) {
 
-    audiosearch();
-    audiosearchAuthorize();
-    audiosearchGet();
+    //audiosearch();
+    //audiosearchAuthorize();
+    //audiosearchGet();
 
     console.log(title);
     var result = title.split(" ");
@@ -117,6 +119,13 @@ var helpers = {
      }
      console.log(newResults);
      title = "";
+    })
+  },
+
+  postUser: function(username, password, image) {
+    axios.post('/api/user', {username: username, password: password, image:image})
+    .then(function(result){
+      return(result);
     })
   },
 

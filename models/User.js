@@ -1,29 +1,23 @@
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
+var mongoose = require('mongoose');
 
-var userSchema = Schema({
+var Schema = mongoose.Schema
+
+var UserSchema = Schema({
 	username: {
-		type: String
+		type: String,
+		required: true
 	},
 	password: {
-		type: String
+		type: String,
+		required:true
 	},
 	image: {
-		type: String
-	},
-	// This won't work because it'll say that this user is admin in every pod. We need to make
-	// a separate admin model or something...
-	isAdmin: {
-		type: Schema.Types.ObjectId,
-		default: false,
-		ref: 'Pod'
-	},
-	pods: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Pod'
-	}]
+		type: String,
+		required: true
+	}
+	
 });
 
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', UserSchema);
 
 module.exports = User;

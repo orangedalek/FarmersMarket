@@ -7,12 +7,12 @@ var PodLanding = React.createClass({
 	getInitialState: function() {
 		return(
 			{
-			'title': this.title,
-			'icon': this.icon,
-			'description': this.description,
-			'keyword': this.keyword,
-			'members': this.members,
-			'admin': this.admin
+			  title : this.title,
+			  icon: this.icon,
+			  description: this.description,
+			  keyword: this.keyword,
+			  members: this.members,
+			  admin: this.admin
 			}
 		);
 	},

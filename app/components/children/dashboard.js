@@ -1,16 +1,19 @@
 var React = require('react');
-
-var helpers = require('../utils/helpers');
-
 var router = require('react-router-dom');
 var Link = router.Link;
 var Route = router.Route;
 
+var helpers = require('../utils/helpers');
+
 var Dashboard = React.createClass({
+
 	getInitialState: function() {
-		return { userPods: [] };
+		return { 
+			userPods: [] 
+		};
 	},
 
+	/*
 	componentDidMount: function() {
 		this.setState({userPods: []});
 	  	// Grab all of the user's pods from the database & display
@@ -19,6 +22,7 @@ var Dashboard = React.createClass({
 	      console.log("User's pods ", userPods.data)
 	    }.bind(this));
 	},
+
 
 	renderEmpty: function() {
 	    return (
@@ -54,7 +58,8 @@ var Dashboard = React.createClass({
 	      )
 	    });
 	},
-
+	*/
+	
 	// handleClick: function() {
 	// 	event.preventDefault();
  //    this.props.searchTerm(this.state.title, this.state.icon, this.state.description, this.state.members);
@@ -99,7 +104,7 @@ var Dashboard = React.createClass({
 										<h2>Name</h2>
 									</div>
 									<div className="col-md-2">
-										<img id="user-pic" src="Koala_climbing_tree.jpg"></img>	
+										<img id="user-pic" src="Koala_climbing_tree.jpg" alt="koala climbing tree"></img>	
 									</div>
 								</div>
 
