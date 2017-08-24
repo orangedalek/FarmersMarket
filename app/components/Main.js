@@ -19,7 +19,7 @@ var Main = React.createClass({
 
   getInitialState: function() {
     //checks for user's id, and if there is none, goes to login??
-    return { 'userId': this._id };
+    return { userId: this._id };
   },
 
     render: function(){

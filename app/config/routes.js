@@ -21,32 +21,9 @@ var podLanding = require('../components/children/podLanding');
 var searchPodcasts = require('../components/children/searchPodcasts');
 //var results = require('../components/children/results');
 module.exports = (
-	<Router>
-		<Route component={Main} />
-		<Route path='/dashboard' component={dashboard} />
-		<Route path='/newuser' component={newUser} />
-		<Route path='/login' component={Login} />
-		<Route path='/pod' component={podLanding} />
-		<Route path='/search' component={searchPodcasts} />
-	</Router>
-);
-// Export the Routes
-module.exports = (
-    // The high level component is the Router component
-    <Router history={hashHistory}>
-      <Route path="/" component={Main}>
-      
-        <Route path="/dashboard" component={dashboard} >
- 
-          <Route path="/newUser" component={newUser} />
-          <Route path="/login" component={login} />
-        </Route>
-
-        <Route path="/pod" component={podLanding} />
-
-        <Route path="/search" component={searchPodcasts} />
-
-        <IndexRoute component={Main} />
-      </Route>
-    </Router>
+	<BrowserRouter>
+		
+    <Route component={Main} />
+		
+	</BrowserRouter>
 );
