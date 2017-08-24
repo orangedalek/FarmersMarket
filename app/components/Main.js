@@ -29,37 +29,6 @@ var Main = React.createClass({
         helpers.postUser(username, password, image);
     },
 
-    // when component updates this will run 
-  componentDidUpdate: function(prevProps, prevState){
-        /*
-        if(prevState.title != this.state.title) {
-            
-            helpers.runQuery(this.state.title)
-                .then(function(data){
-                    console.log(data);
-                    if (data != this.state.results)
-                    {
-                        this.setState({
-                            results: data
-                        })
-                    }
-                }.bind(this))
-        }
-        */
-    },
-
-   /*
-   componentDidMount: function(){
-        axios.get('/api/saved')
-            .then(function(response) {
-                this.setState({
-                    savedArticles: response.data
-                });
-            }.bind(this));
-    },
-    */
-    //functions to load user data, handle clicks..
-
     render: function(){
         return(
           <div className="container">
@@ -127,17 +96,17 @@ var Main = React.createClass({
           <div className="container">    
             <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
           
-          {/* dont think we can use namespace tags in react, but we can add to css later}
-          <div className="row">                
-              <div className="iconmelon">
-                <svg viewBox="0 0 32 32">
-                  <g filter="">
-                    <use xlink:href="#git"></use>
-                  </g>
-                </svg>
-              </div>
-          </div>
-          */}
+            {/* dont think we can use namespace tags in react, but we can add to css later}
+            <div className="row">                
+                <div className="iconmelon">
+                  <svg viewBox="0 0 32 32">
+                    <g filter="">
+                      <use xlink:href="#git"></use>
+                    </g>
+                  </svg>
+                </div>
+            </div>
+            */}
               <Route exact path="/Dashboard" render={(props) => (
                  <Login {...props} />
               )} />
