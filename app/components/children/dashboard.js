@@ -93,7 +93,7 @@ var dashboard = React.createClass({
 										{/* <h4 className="">Create Pod</h4> */}
 										{/* <input type="text" className="form-control text-center" id="title" placeholder="What topic would you like to search?" onChange= {this.handleChange} required/>
 										<br /> */}
-										<button type="button" className="btn btn-primary" onClick={this.handleClick}>Create Pod Now</button>
+										<button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit New Pod</button>
 									</div>
 								</form>
 							</div>

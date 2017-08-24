@@ -36,19 +36,6 @@ var newUser = React.createClass({
 
   },
 
-  // componentDidMount: function(){
-  //   helpers.getSaved().then(function() {
-  //     var data = returned.data
-  //     this.setState({saved: data})
-  //   });
-  // }
-  //
-  // componentDidUpdate: function() {
-  //
-  // }
-
-  //redirect to the Main.js "/" route
-
   render: function() {
     return (
       <div>

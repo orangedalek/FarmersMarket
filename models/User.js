@@ -14,6 +14,11 @@ var userSchema = Schema({
 	// interests: [{
 	// 	type: String
 	// }],
+  isAdmin: {
+    type: Schema.Types.ObjectId,
+    default: false,
+    ref: 'Pod'
+  }
 	pods: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Pod'
