@@ -9,7 +9,7 @@ var Route = router.Route;
 var helpers = require('./utils/helpers');
 
 var Dashboard = require('./children/dashboard');
-var PodLanding = require('./children/podLanding');
+var PodLanding = require('./children/Login');
 
 //subcomponents go here, not sure what they'll be called yet
 // var ??? = require("./???");
@@ -18,7 +18,8 @@ var PodLanding = require('./children/podLanding');
 var Main = React.createClass({
 
   getInitialState: function() {
-    return { 'keyword': this.keyword };
+    //checks for user's id, and if there is none, goes to login??
+    return { 'userId': this._id };
   },
 
     render: function(){
@@ -64,11 +65,11 @@ var Main = React.createClass({
             
           <div className="row"> 
             <Route exact path="/" render={(props) => (
-               <Dashboard {...props} />
+               <Dashboard />
             )} />
 
-            <Route exact path="/podLanding" render={(props) => (
-                <PodLanding {...props} />
+            <Route exact path="/Login" render={(props) => (
+                <Login />
             )} />
           </div>
 
