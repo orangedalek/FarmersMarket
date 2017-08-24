@@ -38,3 +38,5 @@ var Login = React.createClass({
     </div>
 </div>
 });
+
+module.exports = login;
