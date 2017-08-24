@@ -13,7 +13,7 @@ var helpers = require('./utils/helpers');
 var PodLanding = require("./children/PodLanding");
 var Dashboard = require("./children/Dashboard");
 var NewUser = require("./children/NewUser");
-var Login = require('./children/Login');
+var Login = require("./children/Login");
 
 
 var Main = React.createClass({
@@ -77,20 +77,28 @@ var Main = React.createClass({
 
             
           <div className="row"> 
-            <Route exact path="/Dashboard" render={(props) => (
+            <Route path="/Dashboard" render={(props) => (
                <Dashboard {...props} />
             )} />
 
-            <Route exact path="/PodLanding" render={(props) => (
+            <Route path="/PodLanding" render={(props) => (
                 <PodLanding {...props} />
             )} />
           
 
-          <Route exact path="/NewUser" render={(props) => (
+          <Route path="/NewUser" render={(props) => (
                 <NewUser {...props} 
                 createUser={this.createUser}
                 />
             )} />
+         
+      
+          <Route exact path="/" render={(props) => (
+                <Login {...props} 
+                
+                />
+            )} />
+          </div>
 
           <hr />
           <div className="container">    

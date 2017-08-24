@@ -14,16 +14,22 @@ var hashHistory = router.hashHistory;
 var IndexRoute = router.IndexRoute;
 // Reference the high-level components
 var Main = require('../components/Main');
-var dashboard = require('../components/children/dashboard');
+
+var Dashboard = require('../components/children/Dashboard');
+var CreatePod = require('../components/children/grandchildren/CreatePod');
+
 var newUser = require('../components/children/newUser');
 var login = require('../components/children/Login');
 var podLanding = require('../components/children/podLanding');
 var searchPodcasts = require('../components/children/searchPodcasts');
-//var results = require('../components/children/results');
+
 module.exports = (
 	<BrowserRouter>
-		
-    <Route component={Main} />
-		
+		<Route path="/" component={Main}>
+		  <Route path="Dashboard" component={Dashboard}>
+		    <Route path="/Dashboard/CreatePod" component={CreatePod} />
+		  </Route>
+		</Route>
 	</BrowserRouter>
 );
+
