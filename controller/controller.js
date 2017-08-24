@@ -42,6 +42,20 @@ router.post('/api/user', function(req,res) {
   })
 });
 
+//post a new pod
+router.post('/api/pods', function(req,res) {
+  var newPod = new Pod(req.body);
+  newPod.save(function(err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    else {
+      res.send(doc);
+    }
+  })
+});
+
 
 router.get('/user/:id', function(req, res) {
 	//finds user with matching id and sends the pods array

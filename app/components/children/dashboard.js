@@ -4,15 +4,28 @@ var Link = router.Link;
 var Route = router.Route;
 
 var helpers = require('../utils/helpers');
+var CreatePod = require("./grandchildren/CreatePod");
 
 var Dashboard = React.createClass({
 
 	getInitialState: function() {
 		return { 
+			title: "",
+			icon: "",
+			description: "",
+			keyword: "",
 			userPods: [] 
 		};
 	},
 
+	savePod: function(title, icon, description, keyword) {
+        console.log(title);
+        console.log(icon);
+        console.log(description);
+        console.log(keyword);
+        helpers.createPod(title, icon, description, keyword);
+    },
+	
 	/*
 	componentDidMount: function() {
 		this.setState({userPods: []});
@@ -59,7 +72,7 @@ var Dashboard = React.createClass({
 	    });
 	},
 	*/
-	
+
 	// handleClick: function() {
 	// 	event.preventDefault();
  //    this.props.searchTerm(this.state.title, this.state.icon, this.state.description, this.state.members);
@@ -71,8 +84,6 @@ var Dashboard = React.createClass({
  //    res.redirect('/create', function(req, res) {
  //      res.render('index'); // goes back to the index for createPod
  //    });
-
-	// }
 
 	render: function() {
 		return (
@@ -129,7 +140,8 @@ var Dashboard = React.createClass({
 										<br/>
 										<br/>
 										<hr/>
-										<button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button>
+
+										<Link to="/Dashboard/CreatePod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button></Link>
 									</div>
 								</div>	
 							</div>
@@ -137,9 +149,15 @@ var Dashboard = React.createClass({
 
 					</div>
 				</div>
-
-			</div>
-
+					
+			</div> 
+				<div className="row">
+					<Route path="/Dashboard/CreatePod" render={(props) => (
+	               		<CreatePod {...props} 
+	               			savePod={this.savePod} />
+	            		)} 
+					/>
+				</div>
 		  </div>
 		);
 	}

@@ -7,13 +7,20 @@ var Route = router.Route;
 var BrowserRouter = router.BrowserRouter;
 
 var Main = require('../components/Main');
+var Dashboard = require('../components/children/Dashboard');
+var CreatePod = require('../components/children/grandchildren/CreatePod');
 
 
 module.exports = (
 	// Router component
 	<BrowserRouter>
 
-		<Route component={Main} />
+		<Route path="/" component={Main}>
+		  <Route path="Dashboard" component={Dashboard}>
+		    <Route path="/Dashboard/CreatePod" component={CreatePod} />
+		  </Route>
+		</Route>
 
 	</BrowserRouter>
 );
+

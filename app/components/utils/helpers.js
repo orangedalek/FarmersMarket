@@ -129,6 +129,13 @@ var helpers = {
     })
   },
 
+  createPod: function(title , icon, description, keyword) {
+    axios.post('/api/pods', {title: title, icon: icon, description: description, keyword: keyword})
+      .then(function(result) {
+        return(result);
+    })
+  },
+
   postPodcast: function(topic, date, url) {
     axios.post('/api/saved', {title: title, date: date, url: url})
     .then(function(result) {

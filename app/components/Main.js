@@ -13,6 +13,7 @@ var helpers = require('./utils/helpers');
 var PodLanding = require("./children/PodLanding");
 var Dashboard = require("./children/Dashboard");
 var NewUser = require("./children/NewUser");
+var Login = require("./children/Login");
 
 
 var Main = React.createClass({
@@ -112,71 +113,30 @@ var Main = React.createClass({
 
             
           <div className="row"> 
-            <Route exact path="/Dashboard" render={(props) => (
+            <Route path="/Dashboard" render={(props) => (
                <Dashboard {...props} />
             )} />
 
-            <Route exact path="/PodLanding" render={(props) => (
+            <Route path="/PodLanding" render={(props) => (
                 <PodLanding {...props} />
             )} />
           
 
-          <Route exact path="/NewUser" render={(props) => (
+          <Route path="/NewUser" render={(props) => (
                 <NewUser {...props} 
                 createUser={this.createUser}
                 />
             )} />
+          
 
-          <hr />
-          <div className="container">    
-        
-          <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
-        
-        {/* dont think we can use namespace tags in react, but we can add to css later}
-        <div className="row">                
-            <div className="iconmelon">
-              <svg viewBox="0 0 32 32">
-                <g filter="">
-                  <use xlink:href="#git"></use>
-                </g>
-              </svg>
-            </div>
-        </div>
-        */}
-
-        
-                <div className="panel panel-default" >
-                    <div className="panel-heading">
-                        <div className="panel-title text-center">Welcome to PodSquad!</div>
-                    </div>     
-
-                    <div className="panel-body" >
-
-                        <form name="form" id="form" className="form-horizontal" enctype="multipart/form-data" method="POST">
-                           
-                            <div className="input-group">
-                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                <input id="user" type="text" className="form-control" name="user" value="" placeholder="User" />                                        
-                            </div>
-
-                            <div className="input-group">
-                                <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-                                <input id="password" type="password" className="form-control" name="password" placeholder="Password" />
-                            </div>                                                                  
-                            {/*can we add another button to signup which redirects to /NewUser */}
-                            <div className="form-group">
-                                <div className="col-sm-12 controls">
-                                    <button type="submit" href="#" className="btn btn-primary pull-right"><i className="glyphicon glyphicon-log-in"></i> Log in</button>                          
-                                </div>
-                            </div>
-
-                        </form>     
-
-                    </div>                     
-                </div>  
-            </div>
+      
+          <Route exact path="/" render={(props) => (
+                <Login {...props} 
+                
+                />
+            )} />
           </div>
-        </div>
+
         </div>
       );
     }
