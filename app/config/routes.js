@@ -19,5 +19,15 @@ module.exports = (
 
 		<Route component={Main} />
 
+		<Route path='/dashboard' component={dashboard}/>
+
+		<Route path='/login' component={Login}/>
+
+		<Route path='/newuser' component={newUser}/>
+
+		<Route path='/pod' component={podLanding}/>
+
+		<Route path='/search' component={seachPodcast}/>
+
 	</BrowserRouter>
 );
