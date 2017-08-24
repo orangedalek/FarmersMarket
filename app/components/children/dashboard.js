@@ -13,7 +13,7 @@ var Dashboard = React.createClass({
 		};
 	},
 
-	/*
+	
 	componentDidMount: function() {
 		this.setState({userPods: []});
 	  	// Grab all of the user's pods from the database & display
@@ -58,21 +58,6 @@ var Dashboard = React.createClass({
 	      )
 	    });
 	},
-	*/
-	
-	// handleClick: function() {
-	// 	event.preventDefault();
- //    this.props.searchTerm(this.state.title, this.state.icon, this.state.description, this.state.members);
- //    this.setState({title:'', icon: '', description: '', members: []}); //leave interest out for now
- //    this.setState({displayResults: true});
-
- //    db.Pod.save({title: this.state.title, icon: this.state.icon, description: this.state.description, members: this.state.members});
- //    // redirect to login page
- //    res.redirect('/create', function(req, res) {
- //      res.render('index'); // goes back to the index for createPod
- //    });
-
-	// }
 
 	render: function() {
 		return (
@@ -87,7 +72,7 @@ var Dashboard = React.createClass({
 							<h2 className="panel-title text-center">Your Pods</h2>
 						</div>
 						<div className="panel-body">
-							<h1>PODS GO HERE</h1>
+							{this.renderPods}
 						</div>
 					</div>
 				</div>
