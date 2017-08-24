@@ -15,12 +15,12 @@ var Login = React.createClass({
                    
                     <div className="input-group">
                         <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                        <input id="user" type="text" className="form-control" name="user" value="" placeholder="UserName">                                        
+                        <input id="user" type="text" className="form-control" name="user" value="" placeholder="UserName" />                                        
                     </div>
 
                     <div className="input-group">
                         <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" className="form-control" name="password" placeholder="Password">
+                        <input id="password" type="password" className="form-control" name="password" placeholder="Password" />
                     </div>                                                                  
 
                     <div className="form-group">
