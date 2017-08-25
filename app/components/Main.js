@@ -112,7 +112,6 @@ var Main = React.createClass({
             <p>powered by audiosear.ch</p>
           </div>
         </footer>
-      */
       </div>
       );
     }

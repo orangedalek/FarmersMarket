@@ -5,6 +5,7 @@ var Route = router.Route;
 
 var helpers = require('../utils/helpers');
 var CreatePod = require("./grandchildren/CreatePod");
+var QueryPod = require("./grandchildren/QueryPod");
 
 var Dashboard = React.createClass({
 
@@ -130,6 +131,8 @@ var Dashboard = React.createClass({
 										<hr/>
 
 										<Link to="/Dashboard/CreatePod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button></Link>
+
+										<Link to="/Dashboard/QueryPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Query Pod!</button></Link>
 									</div>
 								</div>	
 							</div>
@@ -146,7 +149,16 @@ var Dashboard = React.createClass({
 	            		)} 
 					/>
 				</div>
+
+				<div className="row">
+					<Route path="/Dashboard/QueryPod" render={(props) => (
+	               		<QueryPod {...props}  />
+	            		)} 
+					/>
+				</div>
 		  </div>
+
+
 		);
 	}
 });

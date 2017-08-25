@@ -16,6 +16,7 @@ var CreatePod = require('../components/children/grandchildren/CreatePod');
 var NewUser = require("../components/children/NewUser");
 var Login  = require("../components/children/Login");
 var PodLanding = require("../components/children/PodLanding");
+var QueryPod = require('../components/children/grandchildren/QueryPod');
 
 var Routes = (
 
@@ -24,6 +25,8 @@ var Routes = (
 
 			<Route path="Dashboard" component={Dashboard}>
 				<Route path="CreatePod" component={CreatePod} />
+					<Route path="QueryPod" component={QueryPod} />
+				
 			</Route>
 			<Route path="NewUser" component={NewUser} />
 			<Route path="PodLanding" component={PodLanding} />
