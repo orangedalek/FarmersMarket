@@ -16,32 +16,15 @@ var helpers = {
     var AUDIOSEARCH_SECRET = '453c868cd17a98436e6e213fbb4c1227b3a3c5824137bb5cdb292c7e81045b6c';
 
     var audiosearch = new Audiosearch(AUDIOSEARCH_APP_ID, AUDIOSEARCH_SECRET);
-
-  // audiosearch.getTastemakers().then(function (tastemakers) {
-  //   // do stuff here
-  // });
-
-  // audiosearch.searchEpisodes('text query').then(function (results) {
-  //   // do stuff here.
-  // });
-
-    console.log(title);
-    
-    var result = title.split(" ");
-
-    var queryURL = "";
-
-    for (var i = 0; i < result.length; i++) {
-      queryURL = queryURL + "%20" + result[i];
-    }
-
-    console.log("string " + queryURL);
-    
-
+    console.log("heeeeeeeere")
     //#Search with parameters
-    audiosearch.searchEpisodes(title, {"size":5,"from":1}).then(function (results) {
+
+    audiosearch.searchEpisodes("warriors", {"size":5,"from":1}).then(function (results) {
+      debugger;
       console.log(response);
-     var newResults = [];
+      console.log(results);
+      
+      var newResults = [];
       var fullResults = response.data.results[0];
 
       if(fullResults) {
@@ -51,18 +34,13 @@ var helpers = {
         return newResults;
         
       }
-     else {
-       return ("No results");
-     }
-  // do stuff here.
-  console.log(results);
+      else {
+         return ("No results");
+      }
+      // do stuff here.
+      console.log(results);
     });
-    return axios.get(queryURL).then(function(response) {
 
-     
-     console.log(newResults);
-     title = "";
-    })
   },
 
   postUser: function(username, password, image) {
