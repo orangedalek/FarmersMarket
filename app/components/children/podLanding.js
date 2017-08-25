@@ -18,6 +18,7 @@ var PodLanding = React.createClass({
 	},
 
 	render: function() {
+		return(
 		<div className="container">
 		
 			<div class="row">
@@ -66,7 +67,9 @@ var PodLanding = React.createClass({
           	  <button type="button" class="btn btn-default" id="comment-save">Save</button>
         	</form>
 		</div>
-	}
+	);
+}
+
 })
 
 module.exports = PodLanding;

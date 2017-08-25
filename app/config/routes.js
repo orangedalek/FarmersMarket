@@ -1,4 +1,4 @@
-// Inclue the React library
+// Include the React library
 var React = require("react");
 // Include the react-router module
 var router = require("react-router-dom");
@@ -13,14 +13,23 @@ var Main = require('../components/Main');
 
 var Dashboard = require('../components/children/Dashboard');
 var CreatePod = require('../components/children/grandchildren/CreatePod');
+var NewUser = require("../components/children/NewUser");
+var Login  = require("../components/children/Login");
+var PodLanding = require("../components/children/PodLanding");
 
-module.exports = (
+var Routes = (
+
 	<BrowserRouter>
 		<Route path="/" component={Main}>
-		  <Route path="Dashboard" component={Dashboard}>
-		    <Route path="/Dashboard/CreatePod" component={CreatePod} />
-		  </Route>
+
+			<Route path="Dashboard" component={Dashboard}>
+				<Route path="CreatePod" component={CreatePod} />
+			</Route>
+			<Route path="NewUser" component={NewUser} />
+			<Route path="PodLanding" component={PodLanding} />
+
 		</Route>
 	</BrowserRouter>
 );
 
+module.exports = Routes;
