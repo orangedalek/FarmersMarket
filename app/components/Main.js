@@ -18,8 +18,9 @@ var Login = require("./children/Login");
 
 var Main = React.createClass({
     getInitialState: function(){
-        // get the user's login information?
-        // return 
+        return{
+
+        };
     },
 
     createUser: function(username ,password, image) {
@@ -75,7 +76,8 @@ var Main = React.createClass({
               </div>
             </nav>
 
-            
+
+           
           <div className="row"> 
             <Route path="/Dashboard" render={(props) => (
                <Dashboard {...props} />
@@ -86,42 +88,32 @@ var Main = React.createClass({
             )} />
           
 
-          <Route path="/NewUser" render={(props) => (
+            <Route path="/NewUser" render={(props) => (
                 <NewUser {...props} 
-                createUser={this.createUser}
+                  createUser={this.createUser}
                 />
             )} />
-         
-      
-          <Route exact path="/" render={(props) => (
-                <Login {...props} 
-                
-                />
+          
+            <Route exact path="/" render={(props) => (
+                <Login {...props} />
             )} />
+            
+
           </div>
 
           <hr />
-          <div className="container">    
-            <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
+      
+        <div className="spacer"></div>
 
-              <Route exact path="/Dashboard" render={(props) => (
-                 <Login {...props} />
-              )} />
-                   
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="spacer"></div>
-
-        <footer class="col-md-12 container-fluid text-center navbar-bottom">
+        <footer className="col-md-12 container-fluid text-center navbar-bottom">
           <div>
             <p>&copy; copyright 2017 PodSquad</p>
             <img id="audio" src="public/assets/images/audiosearch_logo.svg" />
             <p>powered by audiosear.ch</p>
           </div>
         </footer>
+      */
+      </div>
       );
     }
 });
