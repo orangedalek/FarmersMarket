@@ -6,6 +6,7 @@ const router = express.Router();
 // Import the Article model
 const User = require('../models/User.js');
 const Pod = require('../models/Pod.js');
+const Podcast = require("../models/Podcast.js");
 
 // This will display the ReactJS application.
 router.get('/', function(req, res) {
@@ -56,6 +57,55 @@ router.post('/api/pods', function(req,res) {
   })
 });
 
+//post a new podcast
+router.post('/api/podcast', function(req,res) {
+  var newPodcast = new Podcast(req.body);
+  newPodcast.save(function(err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    else {
+      res.send(doc);
+    }
+  })
+});
+
+router.get("/api/pod", function(req,res) {
+  Pod.find({})
+  .exec(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+
+router.get("/api/user", function(req,res) {
+  User.find({})
+  .exec(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+
+router.get("/api/podcast", function(req,res) {
+  Podcast.find({})
+  .exec(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
 
 router.get('/user/:id', function(req, res) {
 	//finds user with matching id and sends the pods array

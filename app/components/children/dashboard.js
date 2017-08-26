@@ -3,6 +3,8 @@ var router = require('react-router-dom');
 var Link = router.Link;
 var Route = router.Route;
 
+var axios = require("axios");
+
 var helpers = require('../utils/helpers');
 var CreatePod = require("./grandchildren/CreatePod");
 var QueryPod = require("./grandchildren/QueryPod");
@@ -15,65 +17,62 @@ var Dashboard = React.createClass({
 			icon: "",
 			description: "",
 			keyword: "",
-			userPods: [] 
+			userPods: [],
+			results: [],
+			episodeName: ""
 		};
 	},
 
 	savePod: function(title, icon, description, keyword) {
-        console.log(title);
-        console.log(icon);
-        console.log(description);
-        console.log(keyword);
         helpers.createPod(title, icon, description, keyword);
     },
+
+    searchPod: function(episodeName) {
+    	this.setState({
+    		episodeName: episodeName
+    	})
+    },
+
+    savePodcast: function(title, date, description, image, url) {
+    	helpers.postPodcast(title, date, description, image, url);
+    	this.getPodcast();
+    },
+
+    getPodcast: function() {
+    	axios.get("/api/podcast")
+    	.then(function(response) {
+    		this.setState({
+    			userPods: response.data
+    		});
+    	}.bind(this));
+    },
 	
-	/*
-	componentDidMount: function() {
-		this.setState({userPods: []});
-	  	// Grab all of the user's pods from the database & display
-	  	helpers.getPods().then(function(userPods) {
-	      this.setState({ userPods: userPods.data })
-	      console.log("User's pods ", userPods.data)
-	    }.bind(this));
-	},
+	componentDidUpdate: function(prevProps, prevState){
 
-
-	renderEmpty: function() {
-	    return (
-	      <li className="list-group-item">
-	        <h3>
-	          <span>
-	            <em>You haven't joined any Pods yet!</em>
-	          </span>
-	        </h3>
-	      </li>
-	    );
+		if(prevState.episodeName != this.state.episodeName) {
+			
+			helpers.searchEpisodes(this.state.episodeName)
+				.then(function(data){
+					console.log(data);
+					if (data != this.state.results)
+					{
+						this.setState({
+							results: data
+						})
+					}
+				}.bind(this))
+		}
 	},
-
-	renderPods: function() {
-		console.log('state', this.state);
-	    return this.state.userPods.map(function(pod, index) {
-	      return (
-	        <div key={index}>
-	          <li className="list-group-item">
-	            <h3>
-	              <span>
-	                <em>{pod.title}</em>
-	              </span>
-	              <span className="btn-group pull-right">
-	                <a href={'/pod/:id'} rel="noopener noreferrer" target="_blank">
-	                  <button className="btn btn-default ">Go to Pod</button>
-	                </a>
-	              </span>
-	            </h3>
-	            <p>Description: {pod.description}</p>
-	          </li>
-	        </div>
-	      )
-	    });
-	},
- 
- */
+	
+	getPodcast: function() {
+  		axios.get('/api/podcast')
+		.then(function(response) {
+  			this.setState({
+  				savedPodcasts: response.data
+  			});
+  		}.bind(this));
+    },
+	
 	render: function() {
 		return (
 		  <div className="container">
@@ -85,9 +84,9 @@ var Dashboard = React.createClass({
 					<div className="panel panel-default">
 						<div className="panel-heading">
 							<h2 className="panel-title text-center">Your Pods</h2>
+							{this.getPodcast}
 						</div>
 						<div className="panel-body">
-							{this.renderPods}
 						</div>
 					</div>
 				</div>
@@ -152,7 +151,10 @@ var Dashboard = React.createClass({
 
 				<div className="row">
 					<Route path="/Dashboard/QueryPod" render={(props) => (
-	               		<QueryPod {...props}  />
+	               		<QueryPod {...props}  
+	               		   savePodcast={this.savePodcast}
+	               		   searchPod={this.searchPod}
+	               		   results={this.state.results} />
 	            		)} 
 					/>
 				</div>

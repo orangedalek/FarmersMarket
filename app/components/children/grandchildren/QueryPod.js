@@ -1,62 +1,53 @@
 var React = require('react');
-var Link = require("react-router").Link;
 var helpers = require("../../utils/helpers");
+var RenderPod = require("./RenderPod");
 
 var QueryPod = React.createClass({
   
   getInitialState: function() {
     return {
-      searchTerm: "",
-      results: ""
+    	episodeName: '',
+    	displayResults:false
     };
   },
 
+  
   handleChange: function(event) {
-		this.setState({searchTerm: searchTerm});
+  	var newState = {};
+    newState[event.target.id] = event.target.value;
+	this.setState(newState);
   },
 
   handleClick: function(event) {
-		event.preventDefault();
-    // squash searchTerm through this query f(x), return the results
-	    console.log(searchTerm);
-	    helpers.runQuery(searchTerm);
-    //this.setState({results: response.data.results[0]});
-
-	},
-
-  /*
-  renderPodcasts: function(){
-		return(
-	     <div className="container">
-	        <Query updateSearch={this.state.searchTerm} />
-	        <Results results={this.state.results} />
-	     </div>
-	  );
-	},
-*/
+	event.preventDefault();   	
+	this.props.searchPod(this.state.episodeName);
+	this.setState({episodeName: ''});
+	this.setState({displayResults: true});
+	   
+  },
 
 	render: function(){
 		return(
-			<div className="container">
-				<div className="row">
-					<div className="col-md 12">
-					  <div className="panel panel-default">
-            <div className="panel-heading">
-								<h2>Search External Pods</h2>
-							</div>
-							<div className="panel-body">
-								<h4 className="query-pods"> Query Some Pods </h4>
-                <input type="text" className="form-control text-center" id="searchTerm" placeholder="Search a Pod" onChange= {this.handleChange} required/>
-                <br/>
-								<button type="submit" className="btn btn-default" onClick={this.handleClick}>Search</button>
-								<hr></hr>
-								<ul className="list-group">
-             
-             				  	</ul>
-							</div>
-						</div>
-					</div>
+			<div>
+			 <div className="col-md-12">
+			  <div className="panel panel-default">
+    			<div className="panel-heading">
+					<h2>Search External Pods</h2>
 				</div>
+				<div className="panel-body text-center">
+				 <form>
+				 	<div className="form-group">
+						<h4 className=""> Query Some Pods </h4>
+        				<input type="text" className="form-control text-center" id="episodeName" placeholder="Enter an episode name." onChange= {this.handleChange} required/>
+        				<br/>
+						<button type="button" className="btn btn-primary" onClick={this.handleClick}>Search</button>
+						<hr></hr>
+					</div>
+				 </form>
+				</div>
+			  </div>
+			  {this.state.displayResults ? <RenderPod results={this.props.results} savePodcast={this.props.savePodcast} /> : null }
+			 </div>
 			</div>
 		 );
 	}
