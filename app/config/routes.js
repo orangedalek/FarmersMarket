@@ -25,7 +25,7 @@ var Routes = (
 
 			<Route path="Dashboard" component={Dashboard}>
 				<Route path="CreatePod" component={CreatePod} />
-					<Route path="QueryPod" component={QueryPod} />
+				<Route path="QueryPod" component={QueryPod} />
 				
 			</Route>
 			<Route path="NewUser" component={NewUser} />
