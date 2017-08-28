@@ -8,6 +8,7 @@ var axios = require("axios");
 var helpers = require('../utils/helpers');
 var CreatePod = require("./grandchildren/CreatePod");
 var QueryPod = require("./grandchildren/QueryPod");
+var DisplayPod = require("./grandchildren/DisplayPod");
 
 var Dashboard = React.createClass({
 
@@ -17,7 +18,7 @@ var Dashboard = React.createClass({
 			icon: "",
 			description: "",
 			keyword: "",
-			userPods: [],
+			savedPods: [],
 			results: [],
 			episodeName: ""
 		};
@@ -38,13 +39,35 @@ var Dashboard = React.createClass({
     	this.getPodcast();
     },
 
-    getPodcast: function() {
-    	axios.get("/api/podcast")
-    	.then(function(response) {
-    		this.setState({
-    			userPods: response.data
-    		});
-    	}.bind(this));
+     getPods: function() {
+      axios.get('/api/pods')
+      .then(function(response) {
+        console.log(response.data);
+        this.setState({
+          savedPods: response.data
+        });
+      }.bind(this));
+    },
+
+    deletePods: function(article) {
+  		axios.delete('/api/pods/' + article._id).then(function(response) {
+  				this.setState({
+  					savedPods: response.data
+  				});
+  				return response;
+  				}.bind(this));
+
+  		this.getPods();
+  	},
+
+  	componentDidMount: function() {
+      axios.get('/api/pods')
+      .then(function(response) {
+        console.log(response.data);
+        this.setState({
+          savedPods: response.data
+        });
+      }.bind(this));
     },
 	
 	componentDidUpdate: function(prevProps, prevState){
@@ -72,21 +95,38 @@ var Dashboard = React.createClass({
   			});
   		}.bind(this));
     },
+
+    getPods: function() {
+      axios.get('/api/pods')
+       .then(function(response) {
+        console.log(response.data);
+        this.setState({
+          savedPods: response.data
+        });
+     }.bind(this));
+   },
 	
 	render: function() {
 		return (
 		  <div className="container">
-
-		    <div className="spacer"></div>
-
+		   <div className="spacer"></div>
 			<div className="row">
 				<div className="col-md-8">
 					<div className="panel panel-default">
 						<div className="panel-heading">
-							<h2 className="panel-title text-center">Your Pods</h2>
-							{this.getPodcast}
+							<h2 className="panel-title text-center">Your Pods</h2>	
 						</div>
 						<div className="panel-body">
+							<div className="row">
+								<Link to="/Dashboard/DisplayPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">See All Pods</button></Link>
+								<Route path="/Dashboard/DisplayPod" render={(props) => (
+								<DisplayPod {...props} 
+									getPods={this.getPods}
+									savedPods={this.state.savedPods}
+									deletePods={this.deletePods} />
+								)}
+							/>	
+							</div>
 						</div>
 					</div>
 				</div>
@@ -159,7 +199,6 @@ var Dashboard = React.createClass({
 					/>
 				</div>
 		  </div>
-
 
 		);
 	}

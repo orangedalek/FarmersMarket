@@ -71,7 +71,7 @@ router.post('/api/podcast', function(req,res) {
   })
 });
 
-router.get("/api/pod", function(req,res) {
+router.get("/api/pods", function(req,res) {
   Pod.find({})
   .exec(function(err, doc) {
       if (err) {
@@ -139,6 +139,21 @@ router.get('/pod/:keyword', function(req, res) {
     else {
     }
   })
+});
+
+// API DELETE - your components will use this to delete a saved pod in the database
+router.delete("/api/pods/:id", function(req, res) {
+  console.log(req.params.id);
+  Pod.findByIdAndRemove(req.params.id, function (err, todo) {
+    if (err) {
+      console.log(err);      
+      res.send(err);
+    } 
+    else {
+      res.send(todo);
+    }
+  });
+
 });
 
 module.exports = router;
