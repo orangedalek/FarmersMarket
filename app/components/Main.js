@@ -14,6 +14,7 @@ var PodLanding = require("./children/PodLanding");
 var Dashboard = require("./children/Dashboard");
 var NewUser = require("./children/NewUser");
 var Login = require("./children/Login");
+var Contact = require("./children/contact");
 
 
 var Main = React.createClass({
@@ -42,7 +43,7 @@ var Main = React.createClass({
                           <span className="icon-bar"></span>
                           <span className="icon-bar"></span>
                       </button>
-                      <a className="navbar-brand page-scroll" href="#first"><i className="ion-ios-analytics-outline"></i>PodSquad</a>
+                      <p className="navbar-brand" id="logo">PodSquad</p>
                   </div>
                   <div className="navbar-collapse collapse" id="bs-navbar">
                       <ul className="nav navbar-nav">
@@ -53,7 +54,7 @@ var Main = React.createClass({
                              <Link to="/Dashboard">Dashboard</Link>
                           </li>
                           <li>
-                              <Link to="/contact">Contact</Link>
+                              <Link to="/Contact">Contact</Link>
                           </li>
                           <li>
                             <Link to="/PodLanding">Pod Landing</Link>
@@ -75,19 +76,20 @@ var Main = React.createClass({
                   </div>
               </div>
             </nav>
-
-
            
           <div className="row"> 
             <Route path="/Dashboard" render={(props) => (
                <Dashboard {...props} />
             )} />
 
+            <Route path="/Contact" render={(props) => (
+                <Contact />
+            )} />
+
             <Route path="/PodLanding" render={(props) => (
                 <PodLanding {...props} />
             )} />
           
-
             <Route path="/NewUser" render={(props) => (
                 <NewUser {...props} 
                   createUser={this.createUser}
@@ -98,23 +100,12 @@ var Main = React.createClass({
                 <Login {...props} />
             )} />
             
-
           </div>
-
-          <hr />
       
         <div className="spacer"></div>
-
-        <footer className="col-md-12 container-fluid text-center navbar-bottom">
-          <div>
-            <p>&copy; copyright 2017 PodSquad</p>
-            <img id="audio" src="public/assets/images/audiosearch_logo.svg" />
-            <p>powered by audiosear.ch</p>
-          </div>
-        </footer>
+      
       </div>
-      );
-    }
+    )}
 });
 
 module.exports = Main;

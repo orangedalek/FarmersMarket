@@ -27,30 +27,28 @@ var QueryPod = React.createClass({
   },
 
 	render: function(){
-		return(
-			<div>
-			 <div className="col-md-12">
-			  <div className="panel panel-default">
-    			<div className="panel-heading">
-					<h2>Search External Pods</h2>
-				</div>
-				<div className="panel-body text-center">
-				 <form>
-				 	<div className="form-group">
-						<h4 className=""> Query Some Pods </h4>
-        				<input type="text" className="form-control text-center" id="episodeName" placeholder="Enter an episode name." onChange= {this.handleChange} required/>
-        				<br/>
-						<button type="button" className="btn btn-primary" onClick={this.handleClick}>Search</button>
-						<hr></hr>
-					</div>
-				 </form>
-				</div>
-			  </div>
-			  {this.state.displayResults ? <RenderPod results={this.props.results} savePodcast={this.props.savePodcast} /> : null }
-			 </div>
-			</div>
-		 );
-	}
+        return(
+            <div>
+             <div className="col-md-12">
+              <div className="panel panel-default">
+                <div className="panel-body text-center">
+                    <h2 className="loopy">Search External Pods</h2>
+                 <form>
+                    <div className="form-group">
+                        <h4 className=""> Query Some Pods </h4>
+                        <input type="text" className="form-control text-center" id="episodeName" placeholder="Enter an episode name." onChange= {this.handleChange} required/>
+                        <br/>
+                        <button type="button" className="btn btn-primary" onClick={this.handleClick}>Search</button>
+                        <hr></hr>
+                    </div>
+                 </form>
+                </div>
+              </div>
+              {this.state.displayResults ? <RenderPod results={this.props.results} savePodcast={this.props.savePodcast} /> : null }
+             </div>
+            </div>
+         );
+    }
 });
 
 module.exports = QueryPod;

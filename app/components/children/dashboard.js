@@ -112,103 +112,93 @@ var Dashboard = React.createClass({
    },
 	
 	render: function() {
-		return (
-		  <div className="container">
-		   <div className="spacer"></div>
-			<div className="row">
-				<div className="col-md-8">
-					<div className="panel panel-default">
-						<div className="panel-heading">
-							<h2 className="panel-title text-center">Your Pods</h2>	
-						</div>
-						<div className="panel-body">
-							<div className="row">
-								<Link to="/Dashboard/DisplayPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">See All Pods</button></Link>
-								<Route path="/Dashboard/DisplayPod" render={(props) => (
-								<DisplayPod {...props} 
-									getPods={this.getPods}
-									savedPods={this.state.savedPods}
-									deletePods={this.deletePods} />
-								)}
-								/>	
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="col-md-4">
-					<div className="panel panel-default">
-						<div className="panel-heading">
-							<h2 className="panel-title text-center">You</h2>
-						</div>
-						<div className="panel-body">
-							<div className="container">
-
-								<div className="row">
-									<div className="col-md-2">
-										<h2>Name</h2>
-									</div>
-									<div className="col-md-2">
-										<img id="user-pic" src="Koala_climbing_tree.jpg" alt="koala climbing tree"></img>	
-									</div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-3">
-										<hr/>
-									</div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-4">
-										<h2>Pods</h2>
-										<ul>
-										</ul>
-									</div>
-								</div>
-								
-								<div className="row" id="create-btn-holder">
-									<div className="col-md-3">
-										<br/>
-										<br/>
-										<hr/>
-
-										<Link to="/Dashboard/CreatePod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button></Link>
-
-										<Link to="/Dashboard/QueryPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Query Pod!</button></Link>
-									</div>
-								</div>	
-							</div>
-						</div>
-
-					</div>
-				</div>
-					
-			</div> 
-				<div className="row">
-					<Route path="/Dashboard/CreatePod" render={(props) => (
-	               		<CreatePod {...props} 
-	               			savePod={this.savePod}
-	               			searchPod={this.searchPod}
-	               			results={this.state.results}
-	               			savePodcast={this.savePodcast}
-	               			podcastURL ={this.state.podcastURL} />
-	            		)} 
-					/>
-				</div>
-
-				<div className="row">
-					<Route path="/Dashboard/QueryPod" render={(props) => (
-	               		<QueryPod {...props}  
-	               		   savePodcast={this.savePodcast}
-	               		   searchPod={this.searchPod}
-	               		   results={this.state.results} />
-	            		)} 
-					/>
-				</div>
-		  </div>
-
-		);
-	}
+        return (
+          <div className="container">
+           <div className="spacer"></div>
+            <div className="row">
+                <div className="col-md-8">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <h2 className="panel-title text-center loopy">Your Pods</h2>  
+                            <div className="row">
+                              <div id="button-holder">
+                                <Link to="/Dashboard/DisplayPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">See All Pods</button></Link>
+                               </div>
+                                <Route path="/Dashboard/DisplayPod" render={(props) => (
+                                <DisplayPod {...props} 
+                                    getPods={this.getPods}
+                                    savedPods={this.state.savedPods}
+                                    deletePods={this.deletePods} />
+                                )}
+                                />   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <h2 className="panel-title text-center loopy">You</h2>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-2">
+                                        <h2>Name</h2>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <img id="user-pic" src="../assets/images/pea.jpg" alt="pea"></img>  
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-4">
+                                        <h2>Pods</h2>
+                                        <ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div className="row" id="create-btn-holder">
+                                    <div className="col-md-3">
+                                        <br/>
+                                        <br/>
+                                        <hr/>
+                                        <Link to="/Dashboard/CreatePod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button></Link>
+                                        <Link to="/Dashboard/QueryPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Query Pod!</button></Link>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div> 
+                <div className="row">
+                    <Route path="/Dashboard/CreatePod" render={(props) => (
+                        <CreatePod {...props} 
+                            savePod={this.savePod}
+                            searchPod={this.searchPod}
+                            results={this.state.results}
+                            savePodcast={this.savePodcast}
+                            podcastURL ={this.state.podcastURL} />
+                        )} 
+                    />
+                </div>
+                <div className="row">
+                    <Route path="/Dashboard/QueryPod" render={(props) => (
+                        <QueryPod {...props}  
+                           savePodcast={this.savePodcast}
+                           searchPod={this.searchPod}
+                           results={this.state.results} />
+                        )} 
+                    />
+                </div>
+          </div>
+        );
+    }
 });
 
 module.exports = Dashboard;
