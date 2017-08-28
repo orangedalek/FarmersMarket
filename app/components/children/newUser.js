@@ -25,9 +25,7 @@ var NewUser = React.createClass({
   handleClick: function(event) {
     event.preventDefault();
     this.props.createUser(this.state.username, this.state.password, this.state.image);
-    alert()
-    this.setState({username:'', password: '', image: ''}); 
-    
+    this.setState({username:'', password: '', image: ''});
   },
 
   // componentDidMount: function(){
@@ -45,42 +43,36 @@ var NewUser = React.createClass({
 
   render: function() {
     return (
-      <div>
-				<div className="col-md-12">
-					<div className="panel panel-primary">
-						<div className="panel-heading">
-							<h2 className="panel-title text-center"><strong>Search</strong></h2>
-						</div>
-						<div className="panel-body text-center">
-							<form>
-								<div className="form-group">
-									<h4 className=""><strong>Username</strong></h4>
-									<input type="text" className="form-control text-center" id="username" placeholder="Enter your username." onChange= {this.handleChange} required/>
-									<br />
-
-									<h4 className=""><strong>Password</strong></h4>
-									<input type="text" className="form-control text-center" id="password" placeholder="Enter your password." onChange= {this.handleChange} required/>
-									<br />
-
-                  <h4 className=""><strong>Image</strong></h4>
-									<input type="text" className="form-control text-center" id="image" placeholder="Enter your image link." onChange= {this.handleChange} required/>
-									<br />
-
-									{/* <h4 className=""><strong>End Year</strong></h4>
-									<input type="text" className="form-control text-center" id="endYear" placeholder="2017"onChange= {this.handleChange} required/>
-									<br /> */}
-									<button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit My Info</button>     
-								</div>
-              </form>
-						</div>
-					</div>
+            <div>
+              <div className="spacer" />
+                <div className="col-md-12">
+                    <div className="panel panel-default">
+                        <div className="panel-body text-center">
+                          <h2 className="panel-title text-center loopy">Search</h2>
+                            <form>
+                                <div className="form-group">
+                                    <h4 className=""><strong>Username</strong></h4>
+                                    <input type="text" className="form-control text-center" id="username" placeholder="Enter your username." onChange= {this.handleChange} required/>
+                                    <br />
+                                    <h4 className=""><strong>Password</strong></h4>
+                                    <input type="text" className="form-control text-center" id="password" placeholder="Enter your password." onChange= {this.handleChange} required/>
+                                    <br />
+                                    <h4 className=""><strong>Image</strong></h4>
+                                    <input type="text" className="form-control text-center" id="image" placeholder="Enter your image link." onChange= {this.handleChange} required/>
+                                    <br />
+                                    {/* <h4 className=""><strong>End Year</strong></h4>
+                                    <input type="text" className="form-control text-center" id="endYear" placeholder="2017"onChange= {this.handleChange} required/>
+                                    <br /> */}
+                                    <button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit My Info</button>     
+                                </div>
+                          </form>
+                        </div>
+                    </div>
           {/* {db.User.save({username: this.state.username, password: this.state.password, image: this.state.image, pods: this.state.pods})} */}
-					{/*this.state.displayResults ? <Results results={this.props.results} saveArticle={this.props.[this.props.saveArticle]} /> : null */}
-				</div>
-			</div>
-
-    );
-  }
+                    {/*this.state.displayResults ? <Results results={this.props.results} saveArticle={this.props.[this.props.saveArticle]} /> : null */}
+                </div>
+      </div>
+    )}
 });
 
 //exports the User

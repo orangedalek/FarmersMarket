@@ -34,11 +34,11 @@ var DisplayPod = React.createClass({
 	},
 
 	render: function() {
-		return ( 
-		<div>
-			{this.state.savedPods}
-		</div>
-		);
+        return ( 
+        	<div>
+            	{this.state.savedPods}
+        	</div>
+        );
 	}
 
 });
