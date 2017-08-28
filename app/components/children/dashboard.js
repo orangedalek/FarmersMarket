@@ -83,7 +83,7 @@ var Dashboard = React.createClass({
 				<div className="col-md-8">
 					<div className="panel panel-default">
 						<div className="panel-heading">
-							<h2 className="panel-title text-center">Your Pods</h2>
+							<h2 className="panel-title text-center loopy">Your Pods</h2>
 							{this.getPodcast}
 						</div>
 						<div className="panel-body">
@@ -93,33 +93,17 @@ var Dashboard = React.createClass({
 				<div className="col-md-4">
 					<div className="panel panel-default">
 						<div className="panel-heading">
-							<h2 className="panel-title text-center">You</h2>
+							<h2 className="panel-title text-center loopy">You</h2>
 						</div>
 						<div className="panel-body">
 							<div className="container">
 
 								<div className="row">
 									<div className="col-md-2">
-										<h2>Name</h2>
+										<h2 id="user-name">Name</h2>
 									</div>
 									<div className="col-md-2">
 										<img id="user-pic" src="Koala_climbing_tree.jpg" alt="koala climbing tree"></img>	
-									</div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-3">
-										<hr/>
-									</div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-4">
-										<h2>Pods</h2>
-										<ul>
-											<li>podname</li>
-											<li>podname</li>
-										</ul>
 									</div>
 								</div>
 								

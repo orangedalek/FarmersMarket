@@ -36,13 +36,7 @@ var Main = React.createClass({
             <nav id="topNav" className="navbar navbar-default navbar-fixed-top">
               <div className="container-fluid">
                   <div className="navbar-header">
-                      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-                          <span className="sr-only">Toggle navigation</span>
-                          <span className="icon-bar"></span>
-                          <span className="icon-bar"></span>
-                          <span className="icon-bar"></span>
-                      </button>
-                      <a className="navbar-brand page-scroll" href="#first"><i className="ion-ios-analytics-outline"></i>PodSquad</a>
+                      <p className="navbar-brand" id="logo">PodSquad</p>
                   </div>
                   <div className="navbar-collapse collapse" id="bs-navbar">
                       <ul className="nav navbar-nav">

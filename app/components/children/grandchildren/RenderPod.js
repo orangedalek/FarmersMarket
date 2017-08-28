@@ -38,11 +38,9 @@ var RenderPod = React.createClass({
 	// Here we render the function
 	render: function(){
 		return(
-			<div className="panel panel-success">
-				<div className="panel-heading">
-					<h3 className="panel-title text-center"><strong>Query Results</strong></h3>
-				</div>
+			<div className="panel panel-default">
 				<div className="panel-body">
+					<h3 className="panel-title text-center"><strong>Query Results</strong></h3>
 					{this.state.results}
 				</div>
 			</div>

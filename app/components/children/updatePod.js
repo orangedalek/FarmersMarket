@@ -39,12 +39,8 @@ var UpdatePod = React.createClass({
 				<div className="row">
 					<div className="col-md-12">
 						<div className="panel panel-default">
-
-							<div className="panel-heading">
-								<h2 className="panel-title text-center">Create New Pod</h2>
-							</div>
-
 							<div className="panel-body text-center">
+								<h2 className="panel-title text-center loopy">Create New Pod</h2>
 								<form>
 									<div className="form-group">
 										<h4 className=""><strong>My New Pod Name</strong></h4>

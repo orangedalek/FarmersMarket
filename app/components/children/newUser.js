@@ -47,11 +47,9 @@ var NewUser = React.createClass({
     return (
       <div>
 				<div className="col-md-12">
-					<div className="panel panel-primary">
-						<div className="panel-heading">
-							<h2 className="panel-title text-center"><strong>Search</strong></h2>
-						</div>
+					<div className="panel panel-default">
 						<div className="panel-body text-center">
+              <h2 className="panel-title text-center loopy">Search</h2>
 							<form>
 								<div className="form-group">
 									<h4 className=""><strong>Username</strong></h4>

@@ -52,20 +52,24 @@ var PodLanding = React.createClass({
 					</div>
 				</div>
 			</div>
-
-			<form id="comment-form">
-          	  <div class="form-group">
-            	<label for="comment-name">Name</label>
-            	<input type="text" class="form-control" id="comment-name" placeholder="Name"></input>
-            	<p class="validate" id="name-validate">Please enter your name.</p>
-          	  </div>
-          	  <div class="form-group">
-            	<label for="comment-textarea">Comment</label>
-            	<textarea class="form-control" id="comment-textarea" rows="3" placeholder="Comment"></textarea>
-            	<p class="validate" id="comment-validate">Please enter a comment.</p>
-         	  </div>
-          	  <button type="button" class="btn btn-default" id="comment-save">Save</button>
-        	</form>
+			<div className"panel panel-default">
+				<div className="panel-body">
+					<h1 className="loopy">Discussion</h1>
+				<form id="comment-form">
+	          	  <div class="form-group">
+	            	<label for="comment-name">Name</label>
+	            	<input type="text" class="form-control" id="comment-name" placeholder="Name"></input>
+	            	<p class="validate" id="name-validate">Please enter your name.</p>
+	          	  </div>
+	          	  <div class="form-group">
+	            	<label for="comment-textarea">Comment</label>
+	            	<textarea class="form-control" id="comment-textarea" rows="3" placeholder="Comment"></textarea>
+	            	<p class="validate" id="comment-validate">Please enter a comment.</p>
+	         	  </div>
+	          	  <button type="button" class="btn btn-default" id="comment-save">Save</button>
+	        	</form>
+	        	</div>
+        	</div>
 		</div>
 	);
 }

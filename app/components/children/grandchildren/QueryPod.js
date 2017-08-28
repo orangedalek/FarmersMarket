@@ -31,14 +31,12 @@ var QueryPod = React.createClass({
 			<div>
 			 <div className="col-md-12">
 			  <div className="panel panel-default">
-    			<div className="panel-heading">
-					<h2>Search External Pods</h2>
-				</div>
 				<div className="panel-body text-center">
+					<h2 className"loopy">Search Pods</h2>
 				 <form>
 				 	<div className="form-group">
-						<h4 className=""> Query Some Pods </h4>
-        				<input type="text" className="form-control text-center" id="episodeName" placeholder="Enter an episode name." onChange= {this.handleChange} required/>
+						<h4 className="">Tell us what you're interested in!</h4>
+        				<input type="text" className="form-control text-center" id="episodeName" placeholder="Enter a topic" onChange= {this.handleChange} required/>
         				<br/>
 						<button type="button" className="btn btn-primary" onClick={this.handleClick}>Search</button>
 						<hr></hr>
