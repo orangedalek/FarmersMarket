@@ -12,13 +12,13 @@ var helpers = {
      })
    },
 
-   createPod: function(title , icon, description, keyword) {
-     axios.post('/api/pods', {title: title, icon: icon, description: description, keyword: keyword})
+   createPod: function(title , icon, description, keyword, podcastURL) {
+     axios.post('/api/pods', {title: title, icon: icon, description: description, keyword: keyword, podcastURL: podcastURL})
        .then(function(result) {
          return(result);
      })
    },
-  
+
    searchEpisodes: function(episodeName) {
       
       var str = episodeName.split(" ");
@@ -46,9 +46,9 @@ var helpers = {
      })  
    },
 
-   postPodcast: function(title, date, description, image, url) {
+   postPodcast: function(title, date, description, image, podcastURL) {
      axios.post('/api/podcast', 
-      {title: title, date: date, description: description, image:image, url: url})
+      {title: title, date: date, description: description, image:image, podcastURL: podcastURL})
      .then(function(result) {
        return(result);
      })

@@ -20,12 +20,13 @@ var Dashboard = React.createClass({
 			keyword: "",
 			savedPods: [],
 			results: [],
-			episodeName: ""
+			episodeName: "",
+			podcastURL: ""
 		};
 	},
 
-	savePod: function(title, icon, description, keyword) {
-        helpers.createPod(title, icon, description, keyword);
+	savePod: function(title, icon, description, keyword, podcastURL) {
+        helpers.createPod(title, icon, description, keyword, podcastURL);
     },
 
     searchPod: function(episodeName) {
@@ -34,8 +35,12 @@ var Dashboard = React.createClass({
     	})
     },
 
-    savePodcast: function(title, date, description, image, url) {
-    	helpers.postPodcast(title, date, description, image, url);
+    savePodcast: function(title, date, description, image, podcastURL) {
+    	this.setState({
+    		podcastURL: podcastURL
+    	});
+    	console.log("URL: " + podcastURL);
+    	helpers.postPodcast(title, date, description, image, podcastURL);
     	this.getPodcast();
     },
 
@@ -125,7 +130,7 @@ var Dashboard = React.createClass({
 									savedPods={this.state.savedPods}
 									deletePods={this.deletePods} />
 								)}
-							/>	
+								/>	
 							</div>
 						</div>
 					</div>
@@ -157,8 +162,6 @@ var Dashboard = React.createClass({
 									<div className="col-md-4">
 										<h2>Pods</h2>
 										<ul>
-											<li>podname</li>
-											<li>podname</li>
 										</ul>
 									</div>
 								</div>
@@ -184,7 +187,11 @@ var Dashboard = React.createClass({
 				<div className="row">
 					<Route path="/Dashboard/CreatePod" render={(props) => (
 	               		<CreatePod {...props} 
-	               			savePod={this.savePod} />
+	               			savePod={this.savePod}
+	               			searchPod={this.searchPod}
+	               			results={this.state.results}
+	               			savePodcast={this.savePodcast}
+	               			podcastURL ={this.state.podcastURL} />
 	            		)} 
 					/>
 				</div>

@@ -27,7 +27,7 @@ var QueryPod = React.createClass({
   },
 
 	render: function(){
-		return
+		return(
 			<div>
 			 <div className="col-md-12">
 			  <div className="panel panel-default">
@@ -49,7 +49,7 @@ var QueryPod = React.createClass({
 			  {this.state.displayResults ? <RenderPod results={this.props.results} savePodcast={this.props.savePodcast} /> : null }
 			 </div>
 			</div>
-		 ;
+		 );
 	}
 });
 

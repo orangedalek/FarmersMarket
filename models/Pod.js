@@ -18,11 +18,10 @@ var PodSchema = new Schema({
 		type: String
 	},
 	members: [{
-		// This Number will be equal to the User _id
 		type: Number
 	}],
-	admin: {
-		type: Number
+	podcastURL: {
+		type: String
 	}
 });
 
