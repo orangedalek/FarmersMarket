@@ -142,7 +142,7 @@ var Dashboard = React.createClass({
                             <div className="container">
                                 <div className="row">
                                     <div className="col-md-2">
-                                        <h2>Name</h2>
+                                        <h2>Ken</h2>
                                     </div>
                                     <div className="col-md-2">
                                         <img id="user-pic" src="../assets/images/pea.jpg" alt="pea"></img>  

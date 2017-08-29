@@ -1,5 +1,8 @@
 // Inclue the React library
 var React = require("react");
+var router = require('react-router-dom');
+var Link = router.Link;
+var Route = router.Route;
 
 var Login = React.createClass({
 
@@ -23,7 +26,7 @@ var Login = React.createClass({
                                
                                 <div className="input-group">
                                     <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                    <input id="user" type="text" className="form-control" name="user" value="" placeholder="UserName" />                                        
+                                    <input id="user" type="text" className="form-control" name="user" placeholder="UserName" />                                        
                                 </div>
                                 <div className="input-group">
                                     <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
@@ -32,8 +35,10 @@ var Login = React.createClass({
                                 <div className="form-group">
                             
                                     <div className="col-sm-12 text-center">
-                                        <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-log-in"></i> Log in</button>                          
-                                        <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-pencil "></i> Sign up</button>                          
+                                        <Link to="/dashboard">
+                                        <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-log-in"></i> Log in</button></Link>
+                                        <Link to="/newUser">                          
+                                        <button type="submit" className="btn btn-primary"><i className="glyphicon glyphicon-pencil "></i> Sign up</button></Link>                          
                                     </div>
                                 </div>
                             </form>     

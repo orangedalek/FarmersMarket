@@ -1,6 +1,7 @@
 // Node Dependencies
 const express = require('express');
 const router = express.Router();
+const validator = require('validator');
 
 // Import the Article model
 const User = require('../models/User.js');
@@ -161,5 +162,98 @@ router.delete("/api/pods/:id", function(req, res) {
 router.get("*", function(req, res) {
   res.redirect("/");
 });
+
+function validateSignupForm(payload) {
+  const errors = {};
+  let isFormValid = true;
+  let message = '';
+
+  if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
+    isFormValid = false;
+    errors.email = 'Please provide a correct email address.';
+  }
+
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
+    isFormValid = false;
+    errors.password = 'Password must have at least 8 characters.';
+  }
+
+  if (!payload || typeof payload.username !== 'string' || payload.username.trim().length === 0) {
+    isFormValid = false;
+    errors.username = 'Please provide your name.';
+  }
+
+  if (!isFormValid) {
+    message = 'Check the form for errors.';
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  };
+}
+
+/**
+ * Validate the login form
+ *
+ * @param {object} payload - the HTTP body message
+ * @returns {object} The result of validation. Object contains a boolean validation result,
+ *                   errors tips, and a global message for the whole form.
+ */
+function validateLoginForm(payload) {
+  const errors = {};
+  let isFormValid = true;
+  let message = '';
+
+  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
+    isFormValid = false;
+    errors.email = 'Please provide your email address.';
+  }
+
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
+    isFormValid = false;
+    errors.password = 'Please provide your password.';
+  }
+
+  if (!isFormValid) {
+    message = 'Check the form for errors.';
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  };
+}
+
+router.post('/signup', (req, res) => {
+  const validationResult = validateSignupForm(req.body);
+  if (!validationResult.success) {
+    return res.status(400).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors
+    });
+  }
+
+  return res.status(200).end();
+});
+
+router.post('/login', (req, res) => {
+  const validationResult = validateLoginForm(req.body);
+  if (!validationResult.success) {
+    return res.status(400).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors
+    });
+  }
+
+  return res.status(200).end();
+});
+
+
+module.exports = router;
 
 module.exports = router;
