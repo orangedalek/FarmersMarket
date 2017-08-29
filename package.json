@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/orangedalek/PodSquad#readme",
   "dependencies": {
+    "ajv": "^5.2.2",
     "axios": "^0.16.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
