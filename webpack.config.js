@@ -32,10 +32,7 @@ module.exports = {
     ] 
   },
    resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js']
-  },
-   resolveLoader: {
-      packageMains: ['json-loader']
+    extensions: ['.webpack.js', '.web.js', '.js']
   },
   node: {
     fs: 'empty',

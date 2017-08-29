@@ -21,7 +21,7 @@ var QueryPod = require('../components/children/grandchildren/QueryPod');
 var Routes = (
 
 	<BrowserRouter>
-		<Route path="/" component={Main}>
+		<Route component={Main}>
 
 			<Route path="Dashboard" component={Dashboard}>
 				<Route path="CreatePod" component={CreatePod} />
