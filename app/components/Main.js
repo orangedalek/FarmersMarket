@@ -10,10 +10,10 @@ var Route = router.Route;
 var helpers = require('./utils/helpers');
 
 //include all the sub-components
-var PodLanding = require("./children/PodLanding");
-var Dashboard = require("./children/Dashboard");
-var NewUser = require("./children/NewUser");
-var Login = require("./children/Login");
+var PodLanding = require("./children/podLanding");
+var Dashboard = require("./children/dashboard");
+var NewUser = require("./children/newUser");
+var Login = require("./children/login");
 var Contact = require("./children/contact");
 
 

@@ -13,9 +13,9 @@ var Main = require('../components/Main');
 
 var Dashboard = require('../components/children/Dashboard');
 var CreatePod = require('../components/children/grandchildren/CreatePod');
-var NewUser = require("../components/children/NewUser");
-var Login  = require("../components/children/Login");
-var PodLanding = require("../components/children/PodLanding");
+var NewUser = require('../components/children/NewUser');
+var Login  = require('../components/children/Login');
+var PodLanding = require('../components/children/PodLanding');
 var QueryPod = require('../components/children/grandchildren/QueryPod');
 
 var Routes = (
