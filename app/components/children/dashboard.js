@@ -167,7 +167,7 @@ var Dashboard = React.createClass({
                                         <br/>
                                         <hr/>
                                         <Link to="/Dashboard/CreatePod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Create New Pod!</button></Link>
-                                        <Link to="/Dashboard/QueryPod"><button id="create-btn" className="btn btn-default btn-round-sm btn-sm">Query Pod!</button></Link>
+  
                                     </div>
                                 </div>    
                             </div>
@@ -176,6 +176,19 @@ var Dashboard = React.createClass({
                 </div>
                     
             </div> 
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <h2 className="panel-title text-center loopy">Search Results</h2>  
+                            <div className="row">
+                            
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div> 
+
                 <div className="row">
                     <Route path="/Dashboard/CreatePod" render={(props) => (
                         <CreatePod {...props} 
@@ -187,6 +200,7 @@ var Dashboard = React.createClass({
                         )} 
                     />
                 </div>
+
                 <div className="row">
                     <Route path="/Dashboard/QueryPod" render={(props) => (
                         <QueryPod {...props}  

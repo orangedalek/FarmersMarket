@@ -70,6 +70,7 @@ router.post('/api/podcast', function(req,res) {
   })
 });
 
+//search for all pods
 router.get("/api/pods", function(req,res) {
   Pod.find({})
   .exec(function(err, doc) {
@@ -82,6 +83,7 @@ router.get("/api/pods", function(req,res) {
     });
 });
 
+//search for a specific user
 router.get("/api/user", function(req,res) {
   User.find({})
   .exec(function(err, doc) {
@@ -128,9 +130,9 @@ router.get('/pod/:id', function(req, res) {
     });
 });
 
-//We will send the search parameters through the DOM(? - check documentation)
-router.get('/pod/:keyword', function(req, res) {
-  Pod.find({}, { 'keyword' : req.params.keyword })
+//We will send the search parameters through the DOM
+router.get('/api/pods', function(req, res) {
+  Pod.findOne({'keyword': podSearch})
   .exec(function(err, doc) {
     if(err){
       console.log(err);

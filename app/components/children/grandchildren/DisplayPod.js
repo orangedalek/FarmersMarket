@@ -24,7 +24,7 @@ var DisplayPod = React.createClass({
 		console.log(nextProps);
 		var myResults = nextProps.savedPods.map(function(search, i){
 			var boundClick = that.clickToDelete.bind(that, search);
-			return <div className="list-group-item" key={i}>Icon: <img src={search.icon} /><br />Title: {search.title}<br />Desc: {search.description}
+			return <div className="list-group-item" key={i}>Icon: <img src="../../../assets/images/pea.jpg" width="20px" height="20px" alt="Pea" /><br />Title: {search.title}<br />Desc: {search.description}
 			<br />Keyword(s): {search.keyword}<br />Podcast URL: <a href={search.podcastURL} target='_blank'>{search.podcastURL}</a><br />
 			<button type="button" className="btn btn-danger" style={{'float': 'right', 'marginTop': '-39px'}} 
 			onClick={boundClick}>Delete</button></div>

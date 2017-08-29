@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const logger = require('morgan'); // for debugging
-
+const validator = require('validator');
 
 // Initialize Express for debugging & body parsing
 const app = express();

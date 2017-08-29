@@ -10,7 +10,6 @@ var NewUser = React.createClass({
     return {
       username: '',
       password: '',
-      // interests: [],
       image: '',
       pods: []
     };

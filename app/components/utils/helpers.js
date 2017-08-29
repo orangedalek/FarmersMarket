@@ -46,6 +46,21 @@ var helpers = {
      })  
    },
 
+   searchPods: function(podSearch) {
+
+      return axios.get("/api/pods").then(function(response) {
+
+      var newPodResults = [];
+      var fullPodResults = response.data;
+      console.log(fullPodResults);
+
+      newPodResults.push(fullPodResults);
+ 
+      return newPodResults;
+
+     }) 
+   },
+
    postPodcast: function(title, date, description, image, podcastURL) {
      axios.post('/api/podcast', 
       {title: title, date: date, description: description, image:image, podcastURL: podcastURL})
@@ -53,15 +68,6 @@ var helpers = {
        return(result);
      })
     },
-
-
-  // getPods: function() {
-  //   return axios.get("/user/:id")
-  //     .then(function(results) {
-  //       console.log("axios results", results);
-  //       return results;
-  //     });
-  // },
 
  };
 

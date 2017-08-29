@@ -20,7 +20,13 @@ var Contact = require("./children/contact");
 var Main = React.createClass({
     getInitialState: function(){
         return{
-
+            podSearch: '',
+            results: [],
+            newPodResults: [],
+            title: '',
+            description: '',
+            keyword: '',
+            url: ''
         };
     },
 
@@ -30,6 +36,37 @@ var Main = React.createClass({
         console.log(image);
         helpers.postUser(username, password, image);
     },
+
+    handleChange: function(event) {
+      var newState = {};
+      newState[event.target.id] = event.target.value;
+      this.setState(newState);
+    },
+  
+    handleClick: function(event) {
+      event.preventDefault();
+      console.log(this.state.podSearch);
+
+      helpers.searchPods(this.state.podSearch)
+      .then(function(data){
+
+          
+          var title = data[0][0].title;
+          var description = data[0][0].description;
+          var keyword = data[0][0].keyword;
+          var url = data[0][0].podcastURL;
+          
+
+          if (data != this.state.results)
+          {
+            this.setState({
+              results: data
+            })
+          }
+        }.bind(this))
+
+    },
+
 
     render: function(){
         return(
@@ -51,23 +88,23 @@ var Main = React.createClass({
                               <Link to="/about">About</Link>
                           </li>
                           <li>
-                             <Link to="/Dashboard">Dashboard</Link>
+                             <Link to="/dashboard">Dashboard</Link>
                           </li>
                           <li>
-                              <Link to="/Contact">Contact</Link>
+                              <Link to="/contact">Contact</Link>
                           </li>
                           <li>
-                            <Link to="/PodLanding">Pod Landing</Link>
+                            <Link to="/podLanding">Pod Landing</Link>
                           </li>
                           <li>
-                            <Link to="/NewUser">Sign Up</Link>
+                            <Link to="/newUser">Sign Up</Link>
                           </li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
                           <li>
                               <form className="navbar-form" role="search">
                                 <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Search" />
+                                <input type="text" className="form-control" id="podSearch" placeholder="Search" onChange={this.handleChange} required />
                                 <button type="submit" className="btn btn-default" onClick={this.handleClick}>Search</button>
                                 </div>
                               </form>
@@ -78,19 +115,21 @@ var Main = React.createClass({
             </nav>
            
           <div className="row"> 
-            <Route path="/Dashboard" render={(props) => (
-               <Dashboard {...props} />
+            <Route path="/dashboard" render={(props) => (
+               <Dashboard {...props} 
+               results={this.results}/>
             )} />
 
-            <Route path="/Contact" render={(props) => (
+            <Route path="/contact" render={(props) => (
                 <Contact />
             )} />
 
-            <Route path="/PodLanding" render={(props) => (
-                <PodLanding {...props} />
+            <Route path="/podLanding" render={(props) => (
+                <PodLanding {...props} 
+                />
             )} />
           
-            <Route path="/NewUser" render={(props) => (
+            <Route path="/newUser" render={(props) => (
                 <NewUser {...props} 
                   createUser={this.createUser}
                 />
@@ -101,6 +140,8 @@ var Main = React.createClass({
             )} />
             
           </div>
+
+         
       
         <div className="spacer"></div>
       

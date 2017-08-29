@@ -8,10 +8,6 @@ var UpdatePod = React.createClass({
 			icon: "",
 			description: "",
       		keyword: ""
-			//members: [],
-      		//admin: "" will be the ID of the current user
-			//pods: []
-			//admin: false
 		};
 	},
 
