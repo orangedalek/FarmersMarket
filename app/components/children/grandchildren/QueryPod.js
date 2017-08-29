@@ -1,6 +1,6 @@
 var React = require('react');
 var helpers = require("../../utils/helpers");
-var RenderPod = require("./RenderPod");
+var RenderPod = require("./renderPod");
 
 var QueryPod = React.createClass({
   

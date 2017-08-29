@@ -1,6 +1,6 @@
 var React = require('react');
 var helpers = require('../../utils/helpers');
-var dashboard = require("../../children/Dashboard");
+var dashboard = require("../../children/dashboard");
 
 var DisplayPod = React.createClass({
 

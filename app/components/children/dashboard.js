@@ -6,9 +6,9 @@ var Route = router.Route;
 var axios = require("axios");
 
 var helpers = require('../utils/helpers');
-var CreatePod = require("./grandchildren/CreatePod");
-var QueryPod = require("./grandchildren/QueryPod");
-var DisplayPod = require("./grandchildren/DisplayPod");
+var CreatePod = require("./grandchildren/createPod");
+var QueryPod = require("./grandchildren/queryPod");
+var DisplayPod = require("./grandchildren/displayPod");
 
 var Dashboard = React.createClass({
 
