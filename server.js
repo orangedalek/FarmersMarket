@@ -7,7 +7,7 @@ const logger = require('morgan'); // for debugging
 
 // Initialize Express for debugging & body parsing
 const app = express();
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
