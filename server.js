@@ -46,7 +46,7 @@ var router = require("./controller/controller.js");
 app.use('/', router);
 
 // Launch App
-app.listen(PORT, function(){
+app.listen(PORT, function() {
   console.log('Running on port: ' + PORT);
 });
 

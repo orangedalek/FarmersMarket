@@ -2,17 +2,16 @@
 const express = require('express');
 const router = express.Router();
 
-
 // Import the Article model
 const User = require('../models/User.js');
 const Pod = require('../models/Pod.js');
 const Podcast = require("../models/Podcast.js");
 
+
 // This will display the ReactJS application.
 router.get('/', function(req, res) {
-  res.render('index');
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
-
 
 
 // Comment route
@@ -154,6 +153,11 @@ router.delete("/api/pods/:id", function(req, res) {
     }
   });
 
+});
+
+// This redirect user to the "/" route for any unknown cases
+router.get("*", function(req, res) {
+  res.redirect("/");
 });
 
 module.exports = router;
