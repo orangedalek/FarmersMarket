@@ -1,48 +1,61 @@
-// Inclue the React library
-var React = require("react");
+var React = require('react');
 
 var Login = React.createClass({
 
-    getInitialState: function(){
-        return{
-          
-        };
-    },
+	getInitialState: function() {
+		return {
+			username: "",
+			password: ""
+		};
+	},
 
-    render: function() {
-        return (
-            <div id="login-container" className="container">    
-                <div className="spacer" />
-                <div id="loginbox" className="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
-                        
-                    <div className="panel panel-default" >
-              
-                        <div className="panel-body" >
-                        <h1 id="welcome">Welcome to PodSquad!</h1>
-                            <form name="form" id="form" className="form-horizontal" encType="multipart/form-data" method="POST">
-                               
-                                <div className="input-group">
-                                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                    <input id="user" type="text" className="form-control" name="user" value="" placeholder="UserName" />                                        
-                                </div>
-                                <div className="input-group">
-                                    <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-                                    <input id="password" type="password" className="form-control" name="password" placeholder="Password" />
-                                </div>                                                                  
-                                <div className="form-group">
-                            
-                                    <div className="col-sm-12    text-center">
-                                        <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-log-in"></i> Log in</button>                          
-                                        <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-pencil "></i> Sign up</button>                          
-                                    </div>
-                                </div>
-                            </form>     
-                        </div>                     
-                    </div>  
-                </div>
-            </div>
-        )
-    }
+	handleChange: function(event) {
+		this.setState({username: username, password: password});
+  },
+
+	// when clicked, save to Pod DB, then reroute to Podcast Search
+	handleClick: function(event) {
+		event.preventDefault();
+    db.User.findAll({username: this.state.username, password: this.state.password});
+
+    // if this username exists in User, redirect to dashboard
+
+    // else { console.log("Invalid. Try again.")}
+	},
+
+
+	render: function() {
+		return (
+			<div className = "container">
+				<div className="row">
+					<div className="col-md-12">
+						<div className="panel panel-default">
+
+							<div className="panel-heading">
+								<h2 className="panel-title text-center">Create New Pod</h2>
+							</div>
+
+							<div className="panel-body text-center">
+								<form>
+									<div className="form-group">
+										<h4 className=""><strong>Your Username</strong></h4>
+										<input type="text" className="form-control text-center" id="username" placeholder="Enter your username." onChange= {this.handleChange} required/>
+										<br />
+                    					<h4 className=""><strong>Your Password</strong></h4>
+										<input type="text" className="form-control text-center" id="password" placeholder="Enter your password" onChange= {this.handleChange} required/>
+										<br />
+										<button type="button" className="btn btn-primary" onClick={this.handleClick}>Login</button>
+                    					<button type="button" className="btn btn-primary" onClick={this.handleClick}>Sign Up</button>
+									</div>
+								</form>
+							</div>
+
+					  </div>
+					</div>
+        		</div>
+			</div>
+		)
+	}
 });
 
 module.exports = Login;
