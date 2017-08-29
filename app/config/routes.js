@@ -11,12 +11,12 @@ var Router = router.Router;
 
 var Main = require('../components/Main');
 
-var Dashboard = require('../components/children/Dashboard');
-var CreatePod = require('../components/children/grandchildren/CreatePod');
-var NewUser = require('../components/children/NewUser');
-var Login  = require('../components/children/Login');
-var PodLanding = require('../components/children/PodLanding');
-var QueryPod = require('../components/children/grandchildren/QueryPod');
+var Dashboard = require('../components/children/dashboard');
+var CreatePod = require('../components/children/grandchildren/createPod');
+var NewUser = require('../components/children/newUser');
+var Login  = require('../components/children/login');
+var PodLanding = require('../components/children/podLanding');
+var QueryPod = require('../components/children/grandchildren/queryPod');
 
 var Routes = (
 
