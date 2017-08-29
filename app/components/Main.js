@@ -96,7 +96,7 @@ var Main = React.createClass({
                 />
             )} />
           
-            <Route exact path="/" render={(props) => (
+            <Route exact path="/Login" render={(props) => (
                 <Login {...props} />
             )} />
             
