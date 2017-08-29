@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/orangedalek/PodSquad#readme",
   "dependencies": {
-    "audiosearch-client-node": "^1.0.1",
     "axios": "^0.16.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
@@ -31,7 +30,6 @@
     "json-loader": "^0.5.7",
     "mongoose": "^4.11.7",
     "morgan": "^1.8.2",
-    "promise": "^8.0.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.2",
@@ -39,8 +37,5 @@
     "request": "^2.61.0",
     "webpack": "^2.1.0-beta.22"
   },
-  "devDependencies": {
-    "json-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta.22"
-  }
+  "devDependencies": {}
 }

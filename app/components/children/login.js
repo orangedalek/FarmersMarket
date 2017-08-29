@@ -31,7 +31,7 @@ var Login = React.createClass({
                                 </div>                                                                  
                                 <div className="form-group">
                             
-                                    <div className="col-sm-12    text-center">
+                                    <div className="col-sm-12 text-center">
                                         <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-log-in"></i> Log in</button>                          
                                         <button type="submit" href="#" className="btn btn-primary"><i className="glyphicon glyphicon-pencil "></i> Sign up</button>                          
                                     </div>
